@@ -1,0 +1,2 @@
+module Public::SaunasHelper
+end
