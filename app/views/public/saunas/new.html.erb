@@ -1,0 +1,23 @@
+ <%= render 'layouts/header'%>
+
+ <h2>投稿画面</h2>
+    <%= form_with model:@sauna do |f| %>
+      <label>外観</label>
+      </br><%= f.file_field :profile_image %></br>
+      <label for="sauna_prefecrure">都道府県</label>
+      </br><%= f.text_field :prefecture, class: 'form-control sauna_name' %>
+      <label for="sauna_place">住所</label>
+      </br><%= f.text_field :place, class: 'form-control sauna_name' %>
+    <label for="sauna_name">個室サウナ名</label>
+      </br><%= f.text_field :name, class: 'form-control sauna_name' %>
+    </br><label for="sauna_temperature">サウナ室温度</label>
+      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature' %>
+       <label for="sauna_price">入浴料</label>
+      </br><%= f.text_field :price, class: 'form-control sauna_name' %>
+      <label for="sauna_time">利用時間</label>
+      </br><%= f.text_field :time, class: 'form-control sauna_name' %>
+      <label for="sauna_holiday">定休日</label>
+      </br><%= f.text_field :holiday, class: 'form-control sauna_name' %>
+    <div><%= f.submit 'Create Book'%></div>
+    <% end %>
+    <%= render 'layouts/footer'%>

@@ -11,14 +11,14 @@ Rails.application.routes.draw do
     resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update]
     resources :comments, only: [:create, :destroy]
     resource  :favorites, only: [:create, :destroy]
-  end
-  resources :users, only: [:index,:show,:edit,:update] do
+  resources :users, only: [:new,:index,:show,:edit,:update,:create] do
    get "search", to: "users#search"
     resource :relationships, only: [:create, :destroy]
   	get 'followings' => 'relationships#followings', as: 'followings'
   	get 'followers' => 'relationships#followers', as: 'followers'
   	get "posts" => "users#posts"
   	end
+  end
 
 
 # 顧客用

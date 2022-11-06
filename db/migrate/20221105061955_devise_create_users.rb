@@ -8,15 +8,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token, null: false
+      # t.datetime :reset_password_sent_at, null: false
 
       ## Rememberable
-      t.datetime :remember_created_at
+      # t.datetime :remember_created_at, null: false
 
       t.string :name, null: false
-      t.date :birth_date, null: false
-      t.integer :gender, null: false
+      t.date :birth_date
+      t.integer :gender
       t.boolean :is_deleted, null: false, default: false
 
       ## Trackable
@@ -42,7 +42,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     end
 
     add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
+    # add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

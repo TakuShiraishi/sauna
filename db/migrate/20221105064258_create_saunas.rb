@@ -1,7 +1,8 @@
 class CreateSaunas < ActiveRecord::Migration[6.1]
   def change
     create_table :saunas do |t|
-      t.integer :favorite_id, null: false
+      t.integer :favorite_id
+      t.integer :user_id
       t.string :name, null: false
       t.integer :temperature, null: false
       t.string :place, null: false
