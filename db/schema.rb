@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_06_050157) do
+ActiveRecord::Schema.define(version: 2022_11_07_105334) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "sauna_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,16 +62,7 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
     t.integer "sauna_id", null: false
-    t.integer "user_id", null: false
-    t.text "content", null: false
-    t.integer "star", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -85,18 +76,28 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "sauna_id", null: false
+    t.integer "user_id", null: false
+    t.text "content", null: false
+    t.integer "star", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "saunas", force: :cascade do |t|
     t.integer "favorite_id"
     t.integer "user_id"
     t.string "name", null: false
     t.integer "temperature", null: false
     t.string "place", null: false
-    t.date "holiday", null: false
+    t.string "holiday"
     t.string "prefecture", null: false
-    t.string "post_code", null: false
-    t.string "address", null: false
-    t.integer "price", null: false
-    t.time "time", null: false
+    t.string "post_code"
+    t.text "comment", null: false
+    t.string "address"
+    t.integer "price"
+    t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -105,8 +106,8 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.date "birth_date"
-    t.integer "gender"
+    t.string "birth_date"
+    t.string "gender"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

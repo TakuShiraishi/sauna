@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
- devise_for :user,skip: [:passwords], controllers: {
+devise_for :user,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -8,17 +7,18 @@ Rails.application.routes.draw do
  root to: "public/homes#top"
 
  scope module: :public do
-    resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update]
+    resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
     resources :comments, only: [:create, :destroy]
     resource  :favorites, only: [:create, :destroy]
+    end
   resources :users, only: [:new,:index,:show,:edit,:update,:create] do
    get "search", to: "users#search"
     resource :relationships, only: [:create, :destroy]
   	get 'followings' => 'relationships#followings', as: 'followings'
   	get 'followers' => 'relationships#followers', as: 'followers'
-  	get "posts" => "users#posts"
-  	end
+  	get '/search', to: 'searchs#search'
   end
+ end
 
 
 # 顧客用
@@ -26,5 +26,6 @@ Rails.application.routes.draw do
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

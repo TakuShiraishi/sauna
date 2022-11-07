@@ -11,9 +11,9 @@
 		<% @users.each do |user| %>
 		<tr>
 			<td><%= image_tag user.get_profile_image  %></td>
-			<td><% user.name %></td>
-			<td><%= link_to "show",user_path(user.id) %></td>
-     </tr>
+			<td><%= user.name %></td>
+			<td><%= link_to "マイページ",user_path(user.id) %></td>
+     　 </tr>
      <% end %>
      </table>
 	</tbody>

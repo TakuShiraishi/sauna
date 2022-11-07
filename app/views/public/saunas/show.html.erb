@@ -1,5 +1,5 @@
 <%= render 'layouts/header'%>
-<h2>サウナ一覧</h2>
+<h2>サウナ詳細画面</h2>
     <table class="table table-hover table-inverse">
        <thead>
          <tr>
@@ -11,7 +11,7 @@
            <th>入浴料</th>
            <th>利用時間</th>
            <th>定休日</th>
-           <th></th>
+           <th>サ活感想</th>
            <th></th>
            <th></th>
      　　　 </tr>
@@ -20,15 +20,16 @@
         <% @saunas.each do |sauna| %>
          <tr>
            <td><%= image_tag sauna.get_profile_image  %></td>
-           <td><% sauna.prefecrure %></td>
-           <td><% sauna.place %></td>
-           <td><% sauna.name %></td>
-           <td><% sauna.temperature %></td>
-           <td><% sauna.price %></td>
-           <td><% user.time %></td>
-           <td><% user.holiday %></td>
-           <td></td>
-           <td></td>
+           <td><%= sauna.prefecture %></td>
+           <td><%= sauna.place %></td>
+           <td><%= sauna.name %></td>
+           <td><%= sauna.temperature %></td>
+           <td><%= sauna.price %>円</td>
+           <td><%= sauna.time %></td>
+           <td><%= sauna.holiday %></td>
+           <td><%= sauna.comment %></td>
+           <td><%= link_to '削除',sauna_path(sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+           <td><%= link_to '編集', edit_sauna_path(sauna), class: "btn btn-sm btn-success" %></td>
          </tr>
          <% end %>
       </tbody>

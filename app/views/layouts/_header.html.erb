@@ -58,6 +58,11 @@
 
         <% else %>
           <li>
+            <%=  link_to saunas_path,class: 'nav-link text-light' do %>
+              <div class="nav-btn">サウナ一覧</div>
+            <% end %>
+          </li>
+          <li>
             <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
               <div class="nav-btn">新規登録</div>
             <% end %>
