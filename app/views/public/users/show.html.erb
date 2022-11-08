@@ -11,13 +11,15 @@
     <div class="my_page_btn col-2">
         <h3>登録情報</h3>
     </div>
+    <% if @user == current_user %>
     <div class="my_page_btn col-2">
         <span><%= link_to "編集する",  edit_user_path, class: " item_show_btn btn btn-success" %></span>
     </div>
+    <% else %>
+    <% end %>
     <div class="my_page_btn col-2">
         <span><%= link_to "個室サウナを投稿する",  new_sauna_path, class: " new_sauna_btn btn btn-success" %></span>
     </div>
-
   </div>
   <div class="row mt-3">
     <div class="col-sm-8">
@@ -42,6 +44,14 @@
           <tr>
             <td class="information col-3 table-secondary">メールアドレス</td>
             <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td class="information col-3 table-secondary">フォロー</td>
+            <td><%= link_to @user.followings.count, user_followings_path(@user) %></td>
+          </tr>
+          <tr>
+            <td class="information col-3 table-secondary">フォロワー</td>
+            <td><%= link_to @user.followers.count, user_followers_path(@user) %></td>
           </tr>
         </tbody>
       </table>

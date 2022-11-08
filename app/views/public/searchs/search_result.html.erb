@@ -1,32 +1,6 @@
-<% if @model == 'user' %>
-  <h3>users search for "<%= @content %>"</h3>
-  <table class="table">
-	<thed>
-		<tr>
-			<th>image</th>
-			<th>name</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th colspan="3"></th>
-		</tr>
-	</thed>
-	<tbody>
-		<% @users.each do |user| %>
-		<tr>
-			<td><%= image_tag user.get_profile_image  %></td>
-			<td><%= user.name %></td>
-			<td><%= link_to "マイページ",user_path(user.id) %></td>
-			<td><%= render 'public/relationships/btn', user: user %></td>
-			<td></td>
-     　 </tr>
-     <% end %>
-     </table>
-	</tbody>
-</table>
-<% else @model == 'saunas' %>
-  <h3>saunas search for "<%= @content %>"</h3>
-  <h2>サウナ一覧</h2>
+<%= render 'layouts/header'%>
+<h2>サウナ一覧</h2>
+ <%= render 'public/searchs/form' %>
     <table class="table table-hover table-inverse">
        <thead>
          <tr>
@@ -48,7 +22,7 @@
       <tbody>
         <% @saunas.each do |sauna| %>
          <tr>
-           <td></td>
+           <td><%= link_to sauna.user.name, user_path(sauna.user) %></td>
            <td><%= image_tag sauna.get_profile_image  %></td>
            <td><%= sauna.prefecture %></td>
            <td><%= sauna.place %></td>
@@ -57,7 +31,7 @@
            <td><%= sauna.price %>円</td>
            <td><%= sauna.time %></td>
            <td><%= sauna.holiday %></td>
-           <td>コメント件数: <%= sauna.comments.count %></td>
+           <td>コメント件数: <%= sauna.comments.size %></td>
            <td id="favorite_btn_<%= sauna.id %>">
            <%= render 'public/favorites/favorite', sauna: sauna %>
            </td>
@@ -67,4 +41,4 @@
          <% end %>
       </tbody>
       </table>
-<% end %>
+      <%= render 'layouts/footer'%>

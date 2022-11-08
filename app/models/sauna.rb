@@ -2,7 +2,7 @@ class Sauna < ApplicationRecord
  belongs_to :user
  has_many :favorites, dependent: :destroy
  has_many :comments, dependent: :destroy
- has_many :review, dependent: :destroy
+ has_many :reviews, dependent: :destroy
  has_one_attached :profile_image
 
 
@@ -16,5 +16,9 @@ class Sauna < ApplicationRecord
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+
+  def self.looks(prefecture)
+    []
   end
 end

@@ -28,10 +28,30 @@
            <td><%= sauna.time %></td>
            <td><%= sauna.holiday %></td>
            <td><%= sauna.comment %></td>
+           <td></td>
+           <% if sauna.user == current_user %>
            <td><%= link_to '削除',sauna_path(sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
            <td><%= link_to '編集', edit_sauna_path(sauna), class: "btn btn-sm btn-success" %></td>
+           <td></td>
+          <% else %>
          </tr>
          <% end %>
+         <% end %>
+         </tr>
+          <% @sauna.comments.each do |comment| %>
+        <tr>
+        <td><%= comment.comment %></td>
+        <% if comment.user == current_user %>
+      <td><%= link_to "Destroy", sauna_comment_path(comment.sauna, comment), method: :delete, class: "btn btn-sm btn-danger" %></td>
+        <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <%= form_with model: [@sauna, @comment] do |f| %>
+          <td><%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %></td>
+          <td><%= f.submit "送信する" %></td>
+        <% end %>
+        </tr>
       </tbody>
-      </table>
+    </table>
       <%= render 'layouts/footer'%>

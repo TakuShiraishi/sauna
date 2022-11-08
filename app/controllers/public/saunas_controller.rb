@@ -9,7 +9,8 @@ class Public::SaunasController < ApplicationController
 
  def index
  	@user = current_user
- 	@saunas = Sauna.all
+ 	@saunas = Sauna.all.eager_load(:user).preload(:comments,:favorites)
+ 	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
  	@sauna = Sauna.new
  end
 
@@ -28,7 +29,7 @@ class Public::SaunasController < ApplicationController
  def show
   @sauna = Sauna.find(params[:id])
   @saunas = Sauna.all
-  @sauna = Sauna.new
+  @comment = Comment.new
  end
 
  def edit
