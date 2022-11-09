@@ -21,7 +21,9 @@ Rails.application.routes.draw do
       get :search_result
     end
   end
-
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
   # 顧客用
   # URL /users/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

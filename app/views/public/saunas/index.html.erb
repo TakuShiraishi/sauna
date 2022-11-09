@@ -16,7 +16,7 @@
            <th></th>
            <th></th>
            <th></th>
-           <th></th>
+           <th>評価:</th>
      　　　 </tr>
       </thead>
       <tbody>
@@ -35,10 +35,19 @@
            <td id="favorite_btn_<%= sauna.id %>">
            <%= render 'public/favorites/favorite', sauna: sauna %>
            </td>
-           <td></td>
+           <td><div id="post_raty"></div></td>
            <td><%= link_to '詳細', sauna_path(sauna), class: "btn btn-sm btn-success" %></td>
          </tr>
          <% end %>
       </tbody>
       </table>
+      <script>
+      var elem = document.getElementById('post_raty');
+      var opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      };
+      raty(elem,opt);
+      </script>
       <%= render 'layouts/footer'%>

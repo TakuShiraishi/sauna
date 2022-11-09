@@ -11,7 +11,7 @@
     <div class="my_page_btn col-2">
         <h3>登録情報</h3>
     </div>
-    <% if @user == current_user %>
+    <% if @user == current_user && @user.name != "guestuser"%>
     <div class="my_page_btn col-2">
         <span><%= link_to "編集する",  edit_user_path, class: " item_show_btn btn btn-success" %></span>
     </div>
@@ -57,4 +57,4 @@
       </table>
     </div>
   </div>
-<%= render 'layouts/footer'%>
+   <%= render 'layouts/footer'%>

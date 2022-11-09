@@ -19,6 +19,7 @@ class Sauna < ApplicationRecord
   end
 
   def self.looks(prefecture)
-    []
+    where("prefecture LIKE ?","%#{prefecture}%")
+
   end
 end
