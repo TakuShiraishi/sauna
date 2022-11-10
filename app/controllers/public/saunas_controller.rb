@@ -62,5 +62,3 @@ class Public::SaunasController < ApplicationController
    redirect_to saunas_path unless @sauna.user == current_user
   end
 end
-
-

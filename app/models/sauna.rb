@@ -1,10 +1,10 @@
 class Sauna < ApplicationRecord
+
  belongs_to :user
+ has_one_attached :profile_image
  has_many :favorites, dependent: :destroy
  has_many :comments, dependent: :destroy
  has_many :reviews, dependent: :destroy
- has_one_attached :profile_image
-
 
   def get_profile_image
     unless profile_image.attached?
@@ -14,12 +14,13 @@ class Sauna < ApplicationRecord
     profile_image.variant(resize_to_limit: [100, 100]).processed
   end
 
+
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
 
   def self.looks(prefecture)
     where("prefecture LIKE ?","%#{prefecture}%")
-
   end
 end

@@ -31,23 +31,13 @@
 
         <% elsif admin_signed_in? %>
           <li>
-            <%= link_to admin_path,class: 'nav-link text-light' do %>
-              <div class="nav-btn">商品一覧</div>
-            <% end %>
-          </li>
-          <li>
             <%=  link_to admin_path ,class: 'nav-link text-light' do %>
-              <div class="nav-btn">会員一覧</div>
+              <div class="nav-btn">ユーザー一覧</div>
             <% end %>
           </li>
           <li>
             <%=  link_to admin_path,class: 'nav-link text-light' do %>
-              <div class="nav-btn">注文履歴一覧</div>
-            <% end %>
-          </li>
-          <li>
-            <%=  link_to admin_path,class: 'nav-link text-light' do %>
-              <div class="nav-btn">ジャンル一覧</div>
+              <div class="nav-btn">サウナ一覧</div>
             <% end %>
           </li>
           <li>

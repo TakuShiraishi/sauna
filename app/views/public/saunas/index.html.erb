@@ -16,7 +16,7 @@
            <th></th>
            <th></th>
            <th></th>
-           <th>評価:</th>
+           <th></th>
      　　　 </tr>
       </thead>
       <tbody>
@@ -41,13 +41,14 @@
          <% end %>
       </tbody>
       </table>
-      <script>
-      var elem = document.getElementById('post_raty');
-      var opt = {
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      };
-      raty(elem,opt);
-      </script>
+       <script>
+ 　　　　 var elem = document.getElementById('post_raty');
+  　　　var opt = {
+    　score: <%= @sauna.reviews.first&.star || 0 %>,
+    　starOn: "<%= asset_path('star-on.png') %>",
+    　starOff: "<%= asset_path('star-off.png') %>",
+    　starHalf: "<%= asset_path('star-half.png') %>",
+  　　　};
+  　　raty(elem,opt);
+　　　</script>
       <%= render 'layouts/footer'%>
