@@ -31,24 +31,27 @@
            <td><%= sauna.price %>円</td>
            <td><%= sauna.time %></td>
            <td><%= sauna.holiday %></td>
-           <td>コメント件数: <%= sauna.comments.size %></td>
+           <td>レビューを見る: <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></td>
            <td id="favorite_btn_<%= sauna.id %>">
            <%= render 'public/favorites/favorite', sauna: sauna %>
            </td>
-           <td><div id="post_raty"></div></td>
-           <td><%= link_to '詳細', sauna_path(sauna), class: "btn btn-sm btn-success" %></td>
+           <td><div id="post_raty_<%= sauna.id %>"></div></td>
+           <td><%= link_to '詳細', sauna_path(sauna.id), class: "btn btn-sm btn-success" %></td>
          </tr>
+      <script>
+       $('#post_raty_<%= sauna.id %>').empty();
+       var id_str = 'post_raty_' + <%= sauna.id %>;
+       var elem = document.getElementById(id_str);
+   　　　var opt = {
+      　score: <%= sauna.star || 0 %>,
+      　starOn: "<%= asset_path('star-on.png') %>",
+      　starOff: "<%= asset_path('star-off.png') %>",
+      　starHalf: "<%= asset_path('star-half.png') %>",
+   　　　};
+    　　raty(elem,opt);
+　　　</script>
          <% end %>
       </tbody>
       </table>
-       <script>
- 　　　　 var elem = document.getElementById('post_raty');
-  　　　var opt = {
-    　score: <%= @sauna.reviews.first&.star || 0 %>,
-    　starOn: "<%= asset_path('star-on.png') %>",
-    　starOff: "<%= asset_path('star-off.png') %>",
-    　starHalf: "<%= asset_path('star-half.png') %>",
-  　　　};
-  　　raty(elem,opt);
-　　　</script>
+
       <%= render 'layouts/footer'%>

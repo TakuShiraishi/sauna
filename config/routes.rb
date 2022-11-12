@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
-      resources :comments, only: [:create, :destroy]
-      resource  :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy,:index,:new]
+      resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:new,:index,:show,:edit,:update,:create] do
       get "search", to: "users#search"

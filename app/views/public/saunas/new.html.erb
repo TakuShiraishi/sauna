@@ -20,16 +20,18 @@
       </br><%= f.text_field :holiday, class: 'form-control sauna_name' %>
       <label for="sauna_holiday">感想</label>
       </br><%= f.text_field :comment, class: 'form-control sauna_name' %>
+      <%#= f.hidden_field :star, value: @sauna.star %>
       <div id="post_raty"></div>
     <div><%= f.submit '投稿'%></div>
     <% end %>
     <script>
   var elem = document.getElementById('post_raty');
   var opt = {
-    score: <%= @sauna.reviews.first&.star || 0 %>,
+    score: <%= @sauna.star || 0 %>,
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'sauna[star]'
   };
   raty(elem,opt);
 </script>

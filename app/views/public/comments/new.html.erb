@@ -1,0 +1,8 @@
+<%= render 'layouts/header'%>
+
+      <%= form_with model: [@sauna, @comment], local: true do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメント入力" %>
+      <%= f.submit "送信する" %>
+       <% end %>
+
+    <%= render 'layouts/footer'%>

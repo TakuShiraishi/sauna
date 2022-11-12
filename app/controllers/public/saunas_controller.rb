@@ -54,7 +54,7 @@ class Public::SaunasController < ApplicationController
  private
 
   def sauna_params
-   params.require(:sauna).permit(:profile_image, :prefecrure, :name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment)
+   params.require(:sauna).permit(:profile_image, :prefecrure, :name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment,:star)
   end
 
   def login_user

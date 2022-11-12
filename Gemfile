@@ -58,5 +58,6 @@ gem 'devise'
 gem "net-smtp"
 gem 'jp_prefecture'
 gem 'jquery-rails'
+gem 'pry-rails'
 
 

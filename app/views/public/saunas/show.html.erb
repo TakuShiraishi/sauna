@@ -33,24 +33,15 @@
        <td><%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %></td>
        <td></td>
       <% else %>
-     </tr>
-     <% end %>
-     <% @sauna.comments.each do |comment| %>
-    　　<td><%= comment.comment %></td>
-     　　<% if comment.user == current_user %>
-    　　<td><%= link_to "Destroy", sauna_comment_path(comment.sauna, comment), method: :delete, class: "btn btn-sm btn-danger" %></td>
-    　　<% end %>
-    　　<% end %>
-　　　　　<%= form_with model: [@sauna, @comment], local: true do |f| %>
-      <td><%= f.text_area :comment, rows: '5', placeholder: "レビューコメント" %></td>
-      <td><%= f.submit "送信する" %></td>
-    <% end %>
+      <% end %>
+　　　<td><%= link_to 'レビューを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></td>
   </tbody>
 </table>
 <script>
+   $('#post_raty').empty();
   var elem = document.getElementById('post_raty');
   var opt = {
-    score: <%= @sauna.reviews.first&.star || 0 %>,
+    score: <%= @sauna.star || 0 %>,
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
