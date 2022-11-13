@@ -19,6 +19,7 @@ class Sauna < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+
   def self.looks(prefecture)
     where("prefecture LIKE ?","%#{prefecture}%")
   end

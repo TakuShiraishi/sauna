@@ -1,0 +1,29 @@
+<%= render 'layouts/header'%>
+<h2>検索結果ページ</h2>
+<%= render 'public/searchs/user' %>
+    <table class="table table-hover table-inverse">
+     <table class="table">
+	     <thead>
+       	<tr>
+       			<th>image</th>
+       			<th>name</th>
+       			<th></th>
+       			<th></th>
+       			<th></th>
+       			<th colspan="3"></th>
+       	</tr>
+      </thead>
+       	<tbody>
+       		<% @users.each do |user| %>
+       		<tr>
+       			 <td><%= image_tag user.get_profile_image  %></td>
+       			 <td><%= user.name %></td>
+       			 <td><%= link_to "マイページ",user_path(user.id) %></td>
+       			 <td><%= render 'public/relationships/btn', user: user %></td>
+       			 <td></td>
+          </tr>
+         <% end %>
+     </table>
+	</tbody>
+</table>
+<%= render 'layouts/footer'%>

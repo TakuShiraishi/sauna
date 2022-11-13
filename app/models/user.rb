@@ -35,6 +35,14 @@ class User < ApplicationRecord
    end
   end
 
+  def self.looks(search, name)
+    if search == "perfect"
+      @user = User.where("name LIKE?", "#{name}")
+    　else search == "partial"
+      @user = User.where("name LIKE?","#{name}%")
+    end
+     @user = User.all
+  end
 
   def get_profile_image
     unless profile_image.attached?

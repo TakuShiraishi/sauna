@@ -18,7 +18,8 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
     resource :searchs, only: [:index] do
-      get :search_result
+      get :search_sauna_result
+      get :search_user_result
     end
   end
   devise_scope :user do
