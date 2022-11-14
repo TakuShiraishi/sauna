@@ -1,5 +1,5 @@
 <%= render 'layouts/header'%>
-<h2>サウナ一覧</h2>
+<h2>レビュー一覧</h2>
  <%= render 'public/searchs/sauna' %>
  <%= render 'public/searchs/form' %>
     <table class="table table-hover table-inverse">
@@ -32,7 +32,7 @@
            <td><%= sauna.price %>円</td>
            <td><%= sauna.time %></td>
            <td><%= sauna.holiday %></td>
-           <td>レビューを見る: <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></td>
+           <td>コメントを見る: <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></td>
            <td id="favorite_btn_<%= sauna.id %>">
            <%= render 'public/favorites/favorite', sauna: sauna %>
            </td>
