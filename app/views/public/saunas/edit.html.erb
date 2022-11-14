@@ -7,7 +7,7 @@
 		   <label>外観</label>
       </br><%= f.file_field :profile_image %></br>
       <label for="sauna_prefecrure">都道府県</label>
-      </br><%= f.text_field :prefecture, class: 'form-control sauna_name' %>
+      </br><%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %>
       <label for="sauna_place">住所</label>
       </br><%= f.text_field :place, class: 'form-control sauna_name' %>
     　<label for="sauna_name">個室サウナ名</label>

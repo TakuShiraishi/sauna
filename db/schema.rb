@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
     t.integer "temperature", null: false
     t.string "place", null: false
     t.string "holiday"
-    t.string "prefecture", null: false
+    t.string "prefecture"
     t.string "post_code"
     t.text "comment", null: false
     t.string "address"

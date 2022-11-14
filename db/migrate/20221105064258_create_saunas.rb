@@ -7,7 +7,7 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
       t.integer :temperature, null: false
       t.string :place, null: false
       t.string :holiday
-      t.string :prefecture, null: false
+      t.string :prefecture
       t.string :post_code
       t.text :comment, null: false
       t.string :address

@@ -11,7 +11,7 @@ class Public::SearchsController < ApplicationController
     if method == 'perfect'
       @saunas=@saunas.where(name: content)
     else
-      @saunas=@saunas.where('name LIKE ?', '%'+content+'%')
+      @saunas=@saunas.where('name LIKE ?', '%'+content.to_s+'%')
     end
   end
 

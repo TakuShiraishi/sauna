@@ -9,6 +9,11 @@
 }
 
 .main-visual-content{
-	background-image: url(sauna.jpg);
+	// ref: https://bagelee.com/design/css/difference_between_mix-blend-mode_and_background-blend-mode/
+	background-blend-mode: lighten; // ブレンド指定
+	background-color: rgba(255, 255, 255, .5); // 白をブレンド
+	background-image: image-url("sauna.jpg");
 	background-size: cover;
+	// ヘッダーかフッターの高さが変われば以下を変えてください。
+	height: calc(100vh - 56px - 40px);
 }
