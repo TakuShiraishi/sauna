@@ -45,17 +45,11 @@
                 </table>
               </div>
               <% if @user == current_user && @user.name != "guestuser"%>
-
-                <span><%= link_to "編集する", edit_user_path, class: " item_show_btn btn btn-success" %></span>
-
+　　　　　　　<span><%= link_to "編集する", edit_user_path, class: " item_show_btn btn btn-success" %></span>
               <% else %>
               <% end %>
-
               <span><%=link_to"お気に入り記事",favorites_user_path(@user), class: "favorites_user_btn btn btn-success" %></span>
-
-
              <span><%= link_to "個室サウナを投稿する",  new_sauna_path, class: " new_sauna_btn btn btn-success" %></span>
-
           </div>
         </div>
       </div>

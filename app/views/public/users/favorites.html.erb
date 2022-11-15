@@ -1,12 +1,10 @@
 <%= render 'layouts/header'%>
-<%= render 'public/searchs/sauna' %>
- <%= render 'public/searchs/form' %>
-    <div class="card text-center">
+ <div class="card text-center">
      <div class="card-header">
-       検索結果ページ
+       行ってみたい一覧ページ
        </div>
         <div class="card-body">
-         <% @saunas.each do |sauna| %>
+         <% @favorite_saunas.each do |sauna| %>
          <h5 class="card-title">外観</h5>
          <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
           <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, user_path(sauna.user) %></h5>
@@ -37,4 +35,4 @@
        </div>
       </div>
      </div>
-   <%= render 'layouts/footer'%>
+  <%= render 'layouts/footer'%>

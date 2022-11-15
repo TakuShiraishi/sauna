@@ -1,30 +1,20 @@
 <%= render 'layouts/header'%>
 <% if @users.exists? %>
-<h2>フォローしているユーザー</h2>
-<table class="table">
-	<thed>
-		<tr>
-			<th>image</th>
-			<th>name</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th colspan="3"></th>
-		</tr>
-	</thed>
-	<tbody>
-		<% @users.each do |user| %>
-		<tr>
-			<td><%= image_tag user.get_profile_image  %></td>
-			<td><%= user.name %></td>
-			<td><%= link_to "マイページ",user_path(user.id) %></td>
-			<td><%= render 'public/relationships/btn', user: user %></td>
-			<td></td>
-     　 </tr>
-     <% end %>
-     </table>
-	</tbody>
-</table>
+<div class="card text-center">
+  <div class="card-header">
+    フォローしているユーザー
+   </div>
+    <div class="card-body">
+    	<% @users.each do |user| %>
+    	<h5 class="card-title">画像</h5>
+      <p class="card-text"><%= image_tag user.get_profile_image  %></p>
+      <h5 class="card-title">名前</h5>
+      <p class="card-text"><%= user.name %></p>
+      <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
+      <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
+      <% end %>
+    </div>
+</div>
 <% else %>
 <p>ユーザーはいません</p>
 <% end %>
