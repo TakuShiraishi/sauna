@@ -1,18 +1,18 @@
 <%= render 'layouts/header'%>
-<h2>レビュー一覧</h2>
- <%= render 'public/searchs/sauna' %>
- <%= render 'public/searchs/form' %>
-    <table class="table table-hover table-inverse">
+<h2>行ってみたい一覧ページ</h2>
+<table class="table table-hover table-inverse">
        <thead>
          <tr>
            <th>投稿者名</th>
            <th>外観</th>
+           <th>都道府県</th>
            <th>住所</th>
            <th>個室サウナ名</th>
            <th>サウナ室温度</th>
            <th>入浴料</th>
            <th>利用時間</th>
            <th>定休日</th>
+           <th>投稿日時</th>
            <th></th>
            <th></th>
            <th></th>
@@ -20,11 +20,12 @@
      　　　 </tr>
       </thead>
       <tbody>
-        <% @saunas.each do |sauna| %>
+        <% @favorite_saunas.each do |sauna| %>
          <tr>
            <td><%= link_to sauna.user.name, user_path(sauna.user) %></td>
            <td><%= image_tag sauna.get_profile_image  %></td>
-           <td><%= sauna.prefecture %><%= sauna.place %></td>
+           <td><%= sauna.prefecture %></td>
+           <td><%= sauna.place %></td>
            <td><%= sauna.name %></td>
            <td><%= sauna.temperature %>度</td>
            <td><%= sauna.price %>円</td>
@@ -53,4 +54,4 @@
       </tbody>
     </table>
 
-      <%= render 'layouts/footer'%>
+  <%= render 'layouts/footer'%>

@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
      <h2>投稿画面</h2>
-    <%= form_with model:@sauna do |f| %>
+    　<%= form_with model:@sauna do |f| %>
       <label>外観</label>
       </br><%= f.file_field :profile_image %></br>
       <label for="sauna_prefecrure">都道府県</label>
@@ -13,15 +13,15 @@
       </br><label for="sauna_name">個室サウナ名</label>
       </br><%= f.text_field :name, class: 'form-control sauna_name' %>
       </br><label for="sauna_temperature">サウナ室温度</label>
-      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature' %>
+      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %>
        <label for="sauna_price">入浴料</label>
-      </br><%= f.text_field :price, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :price, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %>
       <label for="sauna_time">利用時間</label>
-      </br><%= f.text_field :time, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :time, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %>
       <label for="sauna_holiday">定休日</label>
-      </br><%= f.text_field :holiday, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :holiday, class: 'form-control sauna_name', placeholder: "例火曜日の場合⇨火" %>
       <label for="sauna_holiday">レビュー</label>
-      </br><%= f.text_field :comment, class: 'form-control sauna_name' %>
+      </br><%= f.text_area :comment, rows: '5', cols: '55', placeholder: "レビューを入力" %>
       <%#= f.hidden_field :star, value: @sauna.star %>
       <div id="post_raty"></div>
     <div><%= f.submit '投稿'%></div>

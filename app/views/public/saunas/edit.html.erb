@@ -13,13 +13,13 @@
     　<label for="sauna_name">個室サウナ名</label>
       </br><%= f.text_field :name, class: 'form-control sauna_name' %>
       </br><label for="sauna_temperature">サウナ室温度</label>
-      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature' %>
+      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %>
       <label for="sauna_price">入浴料</label>
-      </br><%= f.text_field :price, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :price, class: 'form-control sauna_name' , placeholder: "数字のみ記入お願いします"%>
       <label for="sauna_time">利用時間</label>
-      </br><%= f.text_field :time, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :time, class: 'form-control sauna_name' , placeholder: "数字のみ記入お願いします"%>
       <label for="sauna_holiday">定休日</label>
-      </br><%= f.text_field :holiday, class: 'form-control sauna_name' %>
+      </br><%= f.text_field :holiday, class: 'form-control sauna_name' , placeholder: "例火曜日の場合⇨火"%>
       <label for="sauna_holiday">感想</label>
       </br><%= f.text_field :comment, class: 'form-control sauna_name' %>
       <div id="post_raty"></div>

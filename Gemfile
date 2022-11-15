@@ -59,5 +59,5 @@ gem "net-smtp"
 gem 'jp_prefecture'
 gem 'jquery-rails'
 gem 'pry-rails'
-
+gem 'rails-i18n', '~> 6.0'
 

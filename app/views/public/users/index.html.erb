@@ -16,7 +16,7 @@
 		<% @users.each do |user| %>
 		<tr>
 			<td><%= image_tag user.get_profile_image  %></td>
-			<td><%= user.name %></td>
+			<td><%= user.name %>歳</td>
 			<td><%= link_to "マイページ",user_path(user.id) %></td>
 			<td><%= render 'public/relationships/btn', user: user %></td>
 			<td></td>
