@@ -31,12 +31,12 @@
 
         <% elsif admin_signed_in? %>
           <li>
-            <%=  link_to admin_path ,class: 'nav-link text-light' do %>
+            <%=  link_to admin_users_path ,class: 'nav-link text-light' do %>
               <div class="nav-btn">ユーザー一覧</div>
             <% end %>
           </li>
           <li>
-            <%=  link_to admin_path,class: 'nav-link text-light' do %>
+            <%=  link_to admin_saunas_path,class: 'nav-link text-light' do %>
               <div class="nav-btn">レビュー一覧</div>
             <% end %>
           </li>

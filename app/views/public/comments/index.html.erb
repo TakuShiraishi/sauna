@@ -9,7 +9,7 @@
       </div>
     <div class="card-body">
     	<% @comments.each do |comment| %>
-    	<h5 class="card-title">コメント日時:<%= I18n.l comment.user.created_at %></h5>
+    	<h5 class="card-title">投稿日:<%= I18n.l comment.user.created_at %></h5>
       <h5 class="card-title">ニックネーム:<%= comment.user.name %></h5>
       <h5 class="card-title">年齢:<%= comment.user.birth_date %></h5>
       <h5 class="card-title">性別:<%= comment.user.gender %></h5>

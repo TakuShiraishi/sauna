@@ -25,12 +25,7 @@
   	  </br><label>レビュー:</label></br>
   	  <strong><%= @sauna.comment %></strong></br>
       <div id="post_raty"></div>
-      <% if @sauna.user == current_user %>
-      <div><%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-      <%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %></div>
-      <% else %>
-      <% end %>
-  　　<div><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></div>
+      <div><%= link_to '削除',admin_sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></div>
       <script>
          $('#post_raty').empty();
         var elem = document.getElementById('post_raty');

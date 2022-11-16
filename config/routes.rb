@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:new,:index,:show,:edit,:update,:create] do
+      get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+      patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
       get "search", to: "users#search"
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
@@ -32,7 +34,13 @@ Rails.application.routes.draw do
   # URL /users/sign_in ...
    namespace :admin do
     get '/'  => "homes#top", as: "/"
+    resources :saunas
+    resources :users do
+    resources :comments, only: [:create, :destroy,:index,:new]
+    get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
    end
+ end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }

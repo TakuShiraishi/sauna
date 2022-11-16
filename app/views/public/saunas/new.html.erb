@@ -2,7 +2,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-     <h2>投稿画面</h2>
+		  <div class="card text-center">
+     <div class="card-header">
+       投稿画面
+       </div>
+        <div class="card-body">
     　<%= form_with model:@sauna do |f| %>
       <label>外観</label>
       </br><%= f.file_field :profile_image %></br>
@@ -21,11 +25,13 @@
       <label for="sauna_holiday">定休日</label>
       </br><%= f.text_field :holiday, class: 'form-control sauna_name', placeholder: "例火曜日の場合⇨火" %>
       <label for="sauna_comment">レビュー</label>
-      </br><%= f.text_area :comment, rows: '5', cols: '55', placeholder: "レビューを入力" %>
+      </br><%= f.text_area :comment, rows: '5', cols: '49', placeholder: "レビューを入力" %>
       <%#= f.hidden_field :star, value: @sauna.star %>
       <div id="post_raty"></div>
     <div><%= f.submit '投稿'%></div>
     <% end %>
+       </div>
+    　</div>
     </div>
   </div>
 </div>

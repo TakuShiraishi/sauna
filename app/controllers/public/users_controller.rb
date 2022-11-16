@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
  before_action :authenticate_user!
  before_action :ensure_guest_user, only: [:edit]
  def index
-  @users = User.all
+  @users = User.where.not(is_deleted: true)
  end
 
  def show
@@ -21,6 +21,18 @@ class Public::UsersController < ApplicationController
   else
  		render :edit
   end
+ end
+
+ def unsubscribe
+  @user = current_user
+ end
+
+ def withdraw
+  @user = current_user
+  @user.update(is_deleted: true)
+  # is_deletedをtrue削除フラグ
+  reset_session
+  redirect_to root_path
  end
 
  def favorites

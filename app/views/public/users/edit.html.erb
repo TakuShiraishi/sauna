@@ -12,7 +12,8 @@
 				</br><%= f.text_field :birth_date, class: "form-control birth_date", placeholder: "数字のみ記入お願いします" %></br>
 				<label>性別</label>
 				</br><%= f.text_field :gender, class: "form-control gender" %></br>
-			　<div><%= f.submit "変更",class: "btn btn-secondary" %></div>
+			　<div><%= f.submit "編集内容を保存する",class: "btn btn-secondary" %></div>
+			　<div><%= link_to '退会する', user_unsubscribe_path(@user.id), class: "glyphicon glyphicon-tint btn btn-danger"%></div>
 			<% end %>
     </div>
   </div>

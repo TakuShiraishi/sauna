@@ -1,0 +1,24 @@
+<%= render 'layouts/header'%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <div class="card text-center">
+       <div class="card-header">
+        <%= @user.name %>さんの会員情報
+       </div>
+        <div class="card-body">
+            </br><label>画像</label>
+            </br><%= image_tag @user.get_profile_image  %></br>
+            </br><label>ニックネーム:</label><strong><%= @user.name %></strong>
+            </br><label>年齢:</label><strong><%= @user.birth_date %>歳</strong>
+            </br><label>性別:</label><strong><%= @user.gender %></strong>
+            </br><label>メールアドレス:</label><strong><%= @user.email %></strong>
+            </br><label>フォロー:</label><strong><%= link_to @user.followings.count, user_followings_path(@user) %></strong>
+            </br><label>フォロワー:</label><strong><%= link_to @user.followers.count, user_followers_path(@user) %></strong>
+            <div><%= link_to '編集する', edit_admin_user_path(@user), class: " item_show_btn btn btn-success" %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div
+<%= render 'layouts/footer'%>
