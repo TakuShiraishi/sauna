@@ -16,7 +16,7 @@ class Admin::SaunasController < ApplicationController
  def destroy
   sauna = Sauna.find(params[:id])
   sauna.destroy
-  redirect_to admin_sauna_path
+  redirect_to admin_saunas_path
  end
 
  def sauna_params

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
   scope module: :public do
-    resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
+    resources :saunas, only: [:new,:index,:show,:edit,:create,:destroy,:update ] do
+      get :show_index_sauna
       resources :comments, only: [:create, :destroy,:index,:new]
       resource :favorites, only: [:create, :destroy]
     end
@@ -34,9 +35,10 @@ Rails.application.routes.draw do
   # URL /users/sign_in ...
    namespace :admin do
     get '/'  => "homes#top", as: "/"
-    resources :saunas
+    resources :saunas do
+    resources :comments, only: [:destroy,:index,]
+    end
     resources :users do
-    resources :comments, only: [:create, :destroy,:index,:new]
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
    end

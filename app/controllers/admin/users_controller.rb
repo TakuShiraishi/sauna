@@ -10,19 +10,6 @@ class Admin::UsersController < ApplicationController
  	@user = User.find(params[:id])
  end
 
- def edit
-  @user = User.find(params[:id])
- end
-
- def update
-  @user = User.find(params[:id])
-  if @user.update(user_params)
-   render :show
-  else
-   render :edit
-  end
- end
-
  def unsubscribe
   @user = User.find(params[:user_id])
  end

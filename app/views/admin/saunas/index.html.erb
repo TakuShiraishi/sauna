@@ -14,7 +14,7 @@
           <h5 class="card-title">入浴料:<%= sauna.price %>円</h5>
           <h5 class="card-title">利用時間:<%= sauna.time %>時間</h5>
           <h5 class="card-title">定休日:<%= sauna.holiday %>曜日</h5>
-          <p class="card-text">コメントを見る: <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></p>
+          <p class="card-text">コメントを見る: <%= link_to sauna.comments.size,admin_sauna_comments_path(sauna) %></p>
           <p class="card-text"><%= link_to '詳細', admin_sauna_path(sauna.id), class:"btn btn-primary" %></p>
           <script>
           $('#post_raty_<%= sauna.id %>').empty();
