@@ -13,6 +13,12 @@ class Admin::SaunasController < ApplicationController
   @comment = Comment.new
  end
 
+ def show_index_sauna
+  @user = User.find(params[:sauna_id])
+  @saunas = @user.saunas
+  @comment = Comment.new
+ end
+
  def destroy
   sauna = Sauna.find(params[:id])
   sauna.destroy

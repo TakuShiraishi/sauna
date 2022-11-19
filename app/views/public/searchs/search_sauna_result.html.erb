@@ -1,40 +1,55 @@
 <%= render 'layouts/header'%>
 <%= render 'public/searchs/sauna' %>
  <%= render 'public/searchs/form' %>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <div class="card text-center">
      <div class="card-header">
        検索結果ページ
        </div>
         <div class="card-body">
+         <div class="row">
          <% @saunas.each do |sauna| %>
-         <h5 class="card-title">外観</h5>
-         <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
-          <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, user_path(sauna.user) %></h5>
-          <h5 class="card-title">住所:<%= sauna.prefecture %><%= sauna.place %></h5>
-          <h5 class="card-title">個室サウナ名:<%= sauna.name %></h5>
-          <h5 class="card-title">サウナ室温度:<%= sauna.temperature %>度</h5>
-          <h5 class="card-title">入浴料:<%= sauna.price %>円</h5>
-          <h5 class="card-title">利用時間:<%= sauna.time %>時間</h5>
-          <h5 class="card-title">定休日:<%= sauna.holiday %>曜日</h5>
-          <div id="favorite_btn_<%= sauna.id %>">
-          <%= render 'public/favorites/favorite', sauna: sauna %>
+         <div class="col-md-12 col-12">
+          <div class="card">
+           <div class="card-header">
+            <strong><%= sauna.name %></strong></br>
+            </div>
+            <div class="card-body">
+             <%= image_tag sauna.get_profile_image(100,100)%>
+             <div id="favorite_btn_<%= sauna.id %>">
+               <%= render 'public/favorites/favorite', sauna: sauna %>
+               </div>
+               評価：<div id="post_raty_<%= sauna.id %>"></div>
+               <h5 class="card-title">住所:<%= sauna.prefecture %><%= sauna.place %></h5>
+               <h5 class="card-title">サウナ室温度:<%= sauna.temperature %>度</h5>
+               <h5 class="card-title">入浴料:<%= sauna.price %>円</h5>
+               <h5 class="card-title">利用時間:<%= sauna.time %>時間</h5>
+               <h5 class="card-title">定休日:<%= sauna.holiday %>曜日</h5>
+               <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, user_path(sauna.user) %></h5>
+               <p class="card-text"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></p>
+               <script>
+               $('#post_raty_<%= sauna.id %>').empty();
+               var id_str = 'post_raty_' + <%= sauna.id %>;
+               var elem = document.getElementById(id_str);
+           　　　var opt = {
+              　score: <%= sauna.star || 0 %>,
+              　starOn: "<%= asset_path('star-on.png') %>",
+              　starOff: "<%= asset_path('star-off.png') %>",
+              　starHalf: "<%= asset_path('star-half.png') %>",
+           　　　};
+            　　raty(elem,opt);
+        　　   　</script>
+        　　 　</div>
+           </div>
           </div>
-          <div id="post_raty_<%= sauna.id %>"></div>
-          <p class="card-text"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></p>
-          <script>
-          $('#post_raty_<%= sauna.id %>').empty();
-          var id_str = 'post_raty_' + <%= sauna.id %>;
-          var elem = document.getElementById(id_str);
-      　　　var opt = {
-         　score: <%= sauna.star || 0 %>,
-         　starOn: "<%= asset_path('star-on.png') %>",
-         　starOff: "<%= asset_path('star-off.png') %>",
-         　starHalf: "<%= asset_path('star-half.png') %>",
-      　　　};
-       　　raty(elem,opt);
-   　　   　</script>
-         <% end %>
+          <% end %>
+         </div>
        </div>
       </div>
      </div>
+    </div>
+   </div>
+  </div>
    <%= render 'layouts/footer'%>

@@ -14,6 +14,13 @@ class Public::SaunasController < ApplicationController
  	@sauna = Sauna.new
  end
 
+ def show_index_sauna
+  @user = User.find(params[:sauna_id])
+  @saunas = @user.saunas
+  @comment = Comment.new
+ end
+
+
  def create
   @sauna = Sauna.new(sauna_params)
   @sauna.user_id = current_user.id

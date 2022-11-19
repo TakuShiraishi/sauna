@@ -2,11 +2,21 @@
 <div class="container">
 　<div class="row">
 　  <div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-     <h2>コメントを書き込む</h2>
-      <%= form_with model: [@sauna, @comment], local: true do |f| %>
-       <%= f.text_area :comment, rows: '5',cols: '55', placeholder: "コメントを入力" %>
-       <%= f.submit "送信する" %>
-       <% end %>
+　   <div class="card text-center">
+      <div class="card-header">
+         コメントを書き込む
+       </div>
+         <div class="card-body">
+           <div class="row">
+            <%= form_with model: [@sauna, @comment], local: true do |f| %>
+               <div class="card-header">
+               <%= f.text_area :comment, rows: '5',cols: '40', placeholder: "コメントを入力" %>
+                <%= f.submit "送信する" %>
+               </div>
+               <% end %>
+           </div>
+        </div>
+     </div>
     </div>
   </div>
 </div>

@@ -1,19 +1,25 @@
 <%= render 'layouts/header'%>
-    <div class="card text-center">
-     <div class="card-header">
-       レビュー一覧
-       </div>
-        <div class="card-body">
-         <% @saunas.each do |sauna| %>
-         <h5 class="card-title">外観</h5>
-         <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
-          <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, admin_user_path(sauna.user) %></h5>
+<div class="card text-center">
+  <div class="card-header">
+    レビュー一覧
+  </div>
+   <div class="card-body">
+     <div class="row">
+      <% @saunas.each do |sauna| %>
+      <div class="col-md-12 col-12">
+        <div class="card">
+         <div class="card-header">
+          <strong><%= sauna.name %></strong>
+         </div>
+          <div class="card-body">
+           <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
+          </div>
           <h5 class="card-title">住所:<%= sauna.prefecture %><%= sauna.place %></h5>
-          <h5 class="card-title">個室サウナ名:<%= sauna.name %></h5>
           <h5 class="card-title">サウナ室温度:<%= sauna.temperature %>度</h5>
           <h5 class="card-title">入浴料:<%= sauna.price %>円</h5>
           <h5 class="card-title">利用時間:<%= sauna.time %>時間</h5>
           <h5 class="card-title">定休日:<%= sauna.holiday %>曜日</h5>
+          <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, admin_user_path(sauna.user) %></h5>
           <p class="card-text">コメントを見る: <%= link_to sauna.comments.size,admin_sauna_comments_path(sauna) %></p>
           <p class="card-text"><%= link_to '詳細', admin_sauna_path(sauna.id), class:"btn btn-primary" %></p>
           <script>
@@ -28,8 +34,10 @@
       　　　};
        　　raty(elem,opt);
    　　   　</script>
-         <% end %>
+         </div>
        </div>
-      </div>
-     </div>
+      <% end %>
+    </div>
+  </div>
+</div>
   <%= render 'layouts/footer'%>

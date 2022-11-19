@@ -5,13 +5,20 @@
     検索結果ページ
    </div>
     <div class="card-body">
+      <div class="row">
     	<% @users.each do |user| %>
-    	<h5 class="card-title">画像</h5>
-      <p class="card-text"><%= image_tag user.get_profile_image  %></p>
-      <h5 class="card-title">名前:<%= user.name %></h5>
-      <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
-      <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
-      <% end %>
+    	 <div class="col-md-12 col-12">
+        　<div class="card">
+          　<div class="card-header">
+            <p class="card-text"><%= image_tag user.get_profile_image  %></p>
+            <h5 class="card-title"><%= user.name %></h5>
+            <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
+            <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
 </div>
 <%= render 'layouts/footer'%>

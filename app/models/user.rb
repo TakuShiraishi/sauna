@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :validatable
          #:recoverable, :rememberable, :validatable
   has_one_attached :profile_image
-  has_many :sauna, dependent: :destroy
+  has_many :saunas, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 

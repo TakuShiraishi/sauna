@@ -1,27 +1,27 @@
 <%= render 'layouts/header'%>
 　<div class="card text-center">
   　<div class="card-header">
-    個室サウナ<%= @sauna.name %>　コメント一覧ページ
-　　<div class="card-body">
-    	<% @comments.each do |comment| %>
-    	<h5 class="card-title">投稿日:<%= I18n.l comment.user.created_at %></h5>
-      <h5 class="card-title">ニックネーム:<%= comment.user.name %></h5>
-      <h5 class="card-title">年齢:<%= comment.user.birth_date %></h5>
-      <h5 class="card-title">性別:<%= comment.user.gender %></h5>
-      <h5 class="card-title">コメント内容:</h5>
-      <p class="card-text"><%= comment.comment %></p>
-      <div><%= link_to '削除',admin_sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></div>
-      <% end %>
+    個室サウナ<%= @sauna.name %>コメント一覧ページ
     </div>
-　　<script>
-      var elem = document.getElementById('post_raty');
-      var opt = {
-        score: <%= @sauna.star || 0 %>,
-        starOn: "<%= asset_path('star-on.png') %>",
-        starOff: "<%= asset_path('star-off.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
-      };
-      raty(elem,opt);
-    </script>
-  </div>
+    <div class="card-body">
+　　  <div class="row">
+    	<% @comments.each do |comment| %>
+    	<div class="col-md-12 col-12">
+    	  <div class="card">
+    	    <div class="card-header">
+    	      <h5 class="card-title">コメント内容:</h5>
+              <p class="card-text"><%= comment.comment %></p>
+            	<h5 class="card-title">投稿日:<%= I18n.l comment.user.created_at %></h5>
+              <h5 class="card-title">ニックネーム:<%= comment.user.name %></h5>
+              <h5 class="card-title">年齢:<%= comment.user.birth_date %></h5>
+              <h5 class="card-title">性別:<%= comment.user.gender %></h5>
+              <div><%= link_to '削除',admin_sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+              </div>
+           </div>
+         </div>
+       </div>
+        <% end %>
+   </div>
+</div>
+ </div>
 <%= render 'layouts/footer'%>

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
    namespace :admin do
     get '/'  => "homes#top", as: "/"
     resources :saunas do
+    get :show_index_sauna
     resources :comments, only: [:destroy,:index,]
     end
     resources :users do

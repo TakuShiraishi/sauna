@@ -5,7 +5,7 @@
 			<h2>ユーザー編集画面</h2>
 			<%= form_with model:@user, local:true do |f| %>
         </br><label>プロフィール画像</label>
-				</br><%= f.file_field :profile_image, class: "form-control profile_image" %></br>
+				</br><%= f.file_field :profile_image, class: "img-fluid card-img-top" %></br>
 				<label>ニックネーム</label>
 				</br><%= f.text_field :name, class: "form-control name" %></br>
 				<label>年齢</label>
