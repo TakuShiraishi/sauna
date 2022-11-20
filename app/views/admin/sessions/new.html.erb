@@ -1,21 +1,33 @@
 <%= render 'layouts/header'%>
-<h2>管理者ログイン</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+         管理者ログイン
+         </div>
+         <div class="card-body">
+           <%= form_with model: @admin, url: admin_session_path do |f| %>
+           <ul class="list-group list-group-flush">
+　            <li class="list-group-item">
+　              <%= f.label "メールアドレス" , class:"col-md-7" %>
+　              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-7" %>
+　            </li>
 
-<%= form_with model: @admin, url: admin_session_path do |f| %>
-  <div class="field">
-    <%= f.label"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+　            <li class="list-group-item">
+　              <%= f.label "パスワード" , class:"col-md-7" %>
+　              <%= f.password_field :password, autocomplete: "current-password", class:"col-md-7" %>
+　            </li>
 
-  <div class="field">
-    <%= f.label"パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
+　            <li class="list-group-item">
+　               <%= f.submit "ログイン",class:"col-md-7" %>
+　            </li>
+　            <% end %>
+　         </ul>
+　       </div>
+　     </div>
+　   </div>
+　 </div>
+</div>
 <%= render "admin/shared/links" %>
 <%= render 'layouts/footer'%>

@@ -1,5 +1,6 @@
 <%= render 'layouts/header'%>
 <% if @users.exists? %>
+<div class="container">
 <div class="card text-center">
   <div class="card-header">
     フォローしているユーザー
@@ -7,18 +8,19 @@
     <div class="card-body">
       <div class="row">
     	 <% @users.each do |user| %>
-    	  <div class="col-md-12 col-12">
+    	  <div class="col-12 col-sm-6 col-md-4 mb-3">
     	   <div class="card">
     	    <div class="card-header">
             <p class="card-text"><%= image_tag user.get_profile_image  %></p>
             <p class="card-text"><%= user.name %></p>
             <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
             <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
+             </div>
             </div>
           </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+     </div>
   </div>
 </div>
 <% else %>
