@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2022_11_06_050157) do
     t.string "address"
     t.integer "price"
     t.string "time"
-    t.integer "star", null: false
+    t.integer "star", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
