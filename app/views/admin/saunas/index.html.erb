@@ -6,7 +6,7 @@
    <div class="card-body">
      <div class="row">
       <% @saunas.each do |sauna| %>
-      <div class="col-md-12 col-12">
+      <div class="col-md-12 col-sm-6 col-md-4 mb-3">
         <div class="card">
          <div class="card-header">
           <strong><%= sauna.name %></strong>
@@ -14,26 +14,16 @@
           <div class="card-body">
            <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
           </div>
-          <h5 class="card-title">住所:<%= sauna.prefecture %><%= sauna.place %></h5>
-          <h5 class="card-title">サウナ室温度:<%= sauna.temperature %>度</h5>
-          <h5 class="card-title">入浴料:<%= sauna.price %>円</h5>
-          <h5 class="card-title">利用時間:<%= sauna.time %>時間</h5>
-          <h5 class="card-title">定休日:<%= sauna.holiday %>曜日</h5>
-          <h5 class="card-title">投稿者名:<%= link_to sauna.user.name, admin_user_path(sauna.user) %></h5>
-          <p class="card-text">コメントを見る: <%= link_to sauna.comments.size,admin_sauna_comments_path(sauna) %></p>
-          <p class="card-text"><%= link_to '詳細', admin_sauna_path(sauna.id), class:"btn btn-primary" %></p>
-          <script>
-          $('#post_raty_<%= sauna.id %>').empty();
-          var id_str = 'post_raty_' + <%= sauna.id %>;
-          var elem = document.getElementById(id_str);
-      　　　var opt = {
-         　score: <%= sauna.star || 0 %>,
-         　starOn: "<%= asset_path('star-on.png') %>",
-         　starOff: "<%= asset_path('star-off.png') %>",
-         　starHalf: "<%= asset_path('star-half.png') %>",
-      　　　};
-       　　raty(elem,opt);
-   　　   　</script>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">住所:<%= sauna.prefecture %><%= sauna.place %></li>
+          <li class="list-group-item">サウナ室温度::<%= sauna.temperature %>度</li>
+          <li class="list-group-item">入浴料:<%= sauna.price %>円</li>
+          <li class="list-group-item">利用時間:<%= sauna.time %>時間</li>
+          <li class="list-group-item">定休日:<%= sauna.holiday %>曜日</li>
+          <li class="list-group-item">投稿者名:<%= link_to sauna.user.name, admin_user_path(sauna.user) %></li>
+          <li class="list-group-item">コメントを見る:<%= link_to sauna.comments.size,admin_sauna_comments_path(sauna) %></li>
+          <li class="list-group-item"><%= link_to '詳細', admin_sauna_path(sauna.id), class:"btn btn-primary" %></li>
+        </ul>
          </div>
        </div>
       <% end %>
