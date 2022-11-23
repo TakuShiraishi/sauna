@@ -1,6 +1,5 @@
 class Admin::SaunasController < ApplicationController
- before_action :authenticate_user!
- before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
  def index
  	@user = current_user
  	@saunas = Sauna.all.eager_load(:user).preload(:comments,:favorites)
