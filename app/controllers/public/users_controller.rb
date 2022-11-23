@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
  before_action :authenticate_user!
+ before_action :ensure_correct_user, only: [:update,:edit]
  before_action :ensure_guest_user, only: [:edit]
  def index
   @users = User.where.not(is_deleted: true)
@@ -17,7 +18,7 @@ class Public::UsersController < ApplicationController
  def update
   @user = User.find(params[:id])
   if @user.update(user_params)
- 	  redirect_to user_path(@user)
+ 	  redirect_to user_path(@user), notice: "You have updated user successfully."
   else
  		render :edit
   end
@@ -32,7 +33,7 @@ class Public::UsersController < ApplicationController
   @user.update(is_deleted: true)
   # is_deletedをtrue削除フラグ
   reset_session
-  redirect_to root_path
+  redirect_to root_path, notice: "退会しました"
  end
 
  def favorites
@@ -55,5 +56,10 @@ class Public::UsersController < ApplicationController
     if @user.name == "guestuser"
       redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    redirect_to user_path(current_user) unless @user == current_user
   end
 end

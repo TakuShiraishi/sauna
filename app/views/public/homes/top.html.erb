@@ -5,22 +5,25 @@
         <div class="col-4">
            <div class="col-off-set">
             <div class="main-visual-text">
-            <p>お気に入りの個室サウナ施設が見つかる検索サイト！</p>
-            <h2>＠サウナ</h2>
+              <div class="pc">
+              <span>あなたに合ったお気に入りの個室サウナ探してみませんか？</span>
+              </br>
+              <span>個室サウナレビューサイト
+              <span class="h1_l">@sauna</span>
+              <div class="row">
+            　　<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+         　　　 </div>
+              <div class="row ">
+             <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+             </div>
             <div class="row">
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-       　　　 </div>
-            <div class="row ">
-           <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-           </div>
-          <div class="row">
-          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
-          </div>
-    　　　</div>
+            <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+            </div>
+      　　 　</div>
+        </div>
       </div>
     </div>
-　</div>
+  </div>
+ </div>
 </div>
-</div>
-
 <%= render 'layouts/footer'%>

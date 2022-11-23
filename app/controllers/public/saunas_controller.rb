@@ -1,6 +1,6 @@
 class Public::SaunasController < ApplicationController
  before_action :authenticate_user!
- before_action :login_user, only: [ :edit]
+ before_action :login_user, only: [:edit,:update,:destroy]
 
  def new
 		@saunas = Sauna.all
@@ -26,6 +26,7 @@ class Public::SaunasController < ApplicationController
   @sauna.user_id = current_user.id
   if @sauna.save
    redirect_to saunas_path(@sauna.id)
+   flash[:notice] = "サウナの投稿ができました"
   else
    @user = current_user
    @saunas = Sauna.all
@@ -52,7 +53,7 @@ class Public::SaunasController < ApplicationController
  def update
   @sauna = Sauna.find(params[:id])
   if @sauna.update(sauna_params)
-   redirect_to sauna_path(@sauna.id)
+   redirect_to sauna_path(@sauna.id), notice: "サウナ投稿を更新しました"
   else
    render :edit
   end
@@ -61,7 +62,7 @@ class Public::SaunasController < ApplicationController
  private
 
   def sauna_params
-   params.require(:sauna).permit(:profile_image, :prefecrure, :name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment,:star)
+   params.require(:sauna).permit(:profile_image,:name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment,:star)
   end
 
   def login_user

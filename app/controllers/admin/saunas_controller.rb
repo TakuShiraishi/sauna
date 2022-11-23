@@ -1,5 +1,6 @@
 class Admin::SaunasController < ApplicationController
-
+ before_action :authenticate_user!
+ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
  def index
  	@user = current_user
  	@saunas = Sauna.all.eager_load(:user).preload(:comments,:favorites)
@@ -27,5 +28,10 @@ class Admin::SaunasController < ApplicationController
 
  def sauna_params
    params.require(:sauna).permit(:profile_image, :prefecrure, :name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment,:star)
+ end
+
+ def ensure_correct_user
+   @sauna = Sauna.find(params[:id])
+   redirect_to saunas_path unless @sauna.user == current_user
  end
 end
