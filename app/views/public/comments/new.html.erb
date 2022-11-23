@@ -1,7 +1,7 @@
 <%= render 'layouts/header'%>
 <div class="container">
 　<div class="row">
-　  <div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+　  <div class="col-md-12 col-md-12 col-lg-6 px-6 px-sm-0 mx-auto">
 　   <div class="card text-center">
       <div class="card-header">
          コメントを書き込む
@@ -10,8 +10,8 @@
            <div class="row">
             <%= form_with model: [@sauna, @comment], local: true do |f| %>
                <div class="card-header">
-               <%= f.text_area :comment, rows: '5',cols: '40', placeholder: "コメントを入力" %>
-                <%= f.submit "送信する" %>
+               <%= f.text_area :comment, rows: '8',cols: '50', placeholder: "コメントを入力" %>
+                <%= f.submit "送信する",class:"btn btn-primary"%>
                </div>
                <% end %>
            </div>

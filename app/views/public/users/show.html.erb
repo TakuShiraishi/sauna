@@ -21,11 +21,11 @@
                <li class="list-group-item">フォロー:<%= link_to @user.followings.count, user_followings_path(@user) %></li>
                <li class="list-group-item">フォロワー:<%= link_to @user.followers.count, user_followers_path(@user) %></li>
                <% if @user == current_user && @user.name != "guestuser" %>
-                <li class="list-group-item"><%= link_to "編集する", edit_user_path %></li>
+                <li class="list-group-item"><%= link_to "編集する", edit_user_path,class:"btn btn-primary" %></li>
                <% else %>
                <% end %>
-               <li class="list-group-item"><%=link_to "行ってみたいの一覧ページ",favorites_user_path(@user) %></li>
-               <li class="list-group-item"><%= link_to "投稿内容を確認する", sauna_show_index_sauna_path(@user) %></li>
+               <li class="list-group-item"><%=link_to "行ってみたいの一覧ページ",favorites_user_path(@user),class:"btn btn-info" %></li>
+               <li class="list-group-item"><%= link_to "投稿内容を確認する", sauna_show_index_sauna_path(@user),class:"btn btn-info" %></li>
              </ul>
              </div>
             </div>

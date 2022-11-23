@@ -1,4 +1,5 @@
 <%= render 'layouts/header'%>
+<div class="container">
 <div class="card text-center">
   <div class="card-header">
     レビュー一覧
@@ -6,7 +7,7 @@
    <div class="card-body">
      <div class="row">
       <% @saunas.each do |sauna| %>
-      <div class="col-md-12 col-sm-6 col-md-4 mb-3">
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="card">
          <div class="card-header">
           <strong><%= sauna.name %></strong>
@@ -24,9 +25,10 @@
           <li class="list-group-item">コメントを見る:<%= link_to sauna.comments.size,admin_sauna_comments_path(sauna) %></li>
           <li class="list-group-item"><%= link_to '詳細', admin_sauna_path(sauna.id), class:"btn btn-primary" %></li>
         </ul>
+          </div>
          </div>
+         <% end %>
        </div>
-      <% end %>
     </div>
   </div>
 </div>

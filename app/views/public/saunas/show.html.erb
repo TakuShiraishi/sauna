@@ -29,7 +29,9 @@
                     <li class="list-group-item">投稿日:<%= I18n.l @sauna.created_at %></li>
                     <!--lだけではNoMethodErrorになる。-->
                     <!--その場合は、lの代わりにI18n.l-->
-                    <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
+                    <% if current_user != @sauna.user%>
+                     <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
+                    <% end %>
                     <% if @sauna.user == current_user %>
                     <li class="list-group-item"><%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
                      <%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>

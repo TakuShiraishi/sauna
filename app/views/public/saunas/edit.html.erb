@@ -1,35 +1,34 @@
 <%= render 'layouts/header'%>
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-			<h2>投稿編集画面</h2>
-			<%= form_with model: @sauna, local:true do |f| %>
-		   <label>外観</label></br>
-      </br><%= f.file_field :profile_image %></br>
-      <label for="sauna_prefecrure">都道府県</label>
-      </br><%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %>
-      <label for="sauna_place">住所</label>
-      </br><%= f.text_field :place, class: 'form-control sauna_name' %>
-    　<label for="sauna_name">個室サウナ名</label>
-      </br><%= f.text_field :name, class: 'form-control sauna_name' %>
-      </br><label for="sauna_temperature">サウナ室温度</label>
-      </br><%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %>
-      <label for="sauna_price">入浴料</label>
-      </br><%= f.text_field :price, class: 'form-control sauna_name' , placeholder: "数字のみ記入お願いします"%>
-      <label for="sauna_time">利用時間</label>
-      </br><%= f.text_field :time, class: 'form-control sauna_name' , placeholder: "数字のみ記入お願いします"%>
-      <label for="sauna_holiday">定休日</label>
-      </br><%= f.text_field :holiday, class: 'form-control sauna_name' , placeholder: "例火曜日の場合⇨火"%>
-      <label for="sauna_comment">レビュー</label>
-      </br><%= f.text_area :comment, rows: '5', cols: '55', placeholder: "レビューを入力" %>
-      <div id="post_raty">
-        &emsp;
-        評価：
+		<div class="col-md-12 col-md-8 col-lg-6 px-6 px-sm-0 mx-auto">
+		  <div class="card text-center">
+		    <div class="card-header">
+			  投稿編集画面
+			  </div>
+			  <div class="card-body">
+			  <%= form_with model: @sauna, local:true do |f| %>
+			  <ul class="list-group list-group-flush">
+		  　　<li class="list-group-item">個室サウナ名:<%= f.text_field :name, class: 'form-control sauna_name' %></li>
+          <li class="list-group-item">サウナ画像:<%= f.file_field :profile_image %></li>
+          <li class="list-group-item">都道府県:<%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></li>
+          <li class="list-group-item">住所:<%= f.text_field :place, class: 'form-control sauna_name' %></li>
+          <li class="list-group-item">サウナ室温度:<%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %></li>
+          <li class="list-group-item">入浴料:<%= f.text_field :price, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
+          <li class="list-group-item">利用時間:<%= f.text_field :time, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
+          <li class="list-group-item">定休日:<%= f.text_field :holiday, class: 'form-control sauna_name', placeholder: "例火曜日の場合⇨火" %></li>
+          <li class="list-group-item">レビュー:<%= f.text_area :comment, rows: '5', cols: '49', placeholder: "レビューを入力", class: 'form-control' %>
+          <div id="post_raty" >
+            &emsp;
+            評価：
+          </div>
+          <li class="list-group-item mb-3"><%= f.submit '編集する',class:"btn btn-success"%></li>
+        </ul>
       </div>
-      <div><%= f.submit '投稿'%></div>
+    </div>
     <% end %>
-		</div>
-	</div>
+  	</div>
+  </div>
 </div>
 <script>
   var elem = document.getElementById('post_raty');

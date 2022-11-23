@@ -15,9 +15,8 @@
                 <div class="card">
                 <div class="card-header">
                   <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
                     <li class="list-group-item"><%= comment.comment %></li>
-                    <li class="list-group-item"><%= comment.user.name %></li>
-                    <li class="list-group-item">年齢:<%= comment.user.birth_date %></li>
                     <li class="list-group-item">投稿日:<%= I18n.l comment.user.created_at %></li>
                   </ul>
                </div>

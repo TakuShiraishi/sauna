@@ -1,29 +1,32 @@
 <%= render 'layouts/header'%>
 <div class="main-visual-content">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-4">
-           <div class="col-off-set">
+      <div class="row">
+       <div class="col-md-12 mx-auto">
+        <div class="main-visual">
             <div class="main-visual-text">
-              <div class="pc">
-              <span>あなたに合ったお気に入りの個室サウナ探してみませんか？</span>
-              </br>
-              <span>個室サウナレビューサイト
-              <span class="h1_l">@sauna</span>
-              <div class="row">
-            　　<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-         　　　 </div>
-              <div class="row ">
-             <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-             </div>
-            <div class="row">
-            <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
-            </div>
-      　　 　</div>
+              <h2 class="shadow text-center p-5">@sauna</h2>
+              <div class="col-md-1 p-3"></div>
+              <h2>
+              <p class="shadow text-center p-1">
+                あなたに合ったお気に入りの個室サウナ探してみませんか？</br>
+								個室サウナレビューサイト</br>
+							</h2>
+							<div class="row justify-content-center p-5">
+					   <div class="col-md-3 ">
+					   　<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block  sign_in", method: :post %>
+							</div>
+							<div class="col-md-3 p-4">
+							 <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block  sign_in" %>
+							 </div>
+							<div class="col-md-3 p-4">
+							 <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+							 </div>
+							 </div>
+				    </div>
+      　　　</div>
         </div>
       </div>
     </div>
   </div>
- </div>
-</div>
 <%= render 'layouts/footer'%>

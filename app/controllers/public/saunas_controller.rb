@@ -1,6 +1,6 @@
 class Public::SaunasController < ApplicationController
  before_action :authenticate_user!
- before_action :login_user, only: [:edit,:update,:destroy]
+ before_action :ensure_correct_user, only: [:edit,:update,:destroy]
 
  def new
 		@saunas = Sauna.all
@@ -65,7 +65,7 @@ class Public::SaunasController < ApplicationController
    params.require(:sauna).permit(:profile_image,:name,:temperature,:place,:holiday,:prefecture,:post_code,:address,:price,:time,:comment,:star)
   end
 
-  def login_user
+  def ensure_correct_user
    @sauna = Sauna.find(params[:id])
    redirect_to saunas_path unless @sauna.user == current_user
   end
