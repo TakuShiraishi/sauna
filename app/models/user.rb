@@ -17,7 +17,6 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
    validates :name, length: { minimum: 2, maximum: 20 },uniqueness: true
-   validates :birth_date,:gender, presence:true
 
   def follow(user)
       relationships.create(followed_id: user.id)
