@@ -2,8 +2,10 @@ class Public::UsersController < ApplicationController
  before_action :authenticate_user!
  before_action :ensure_correct_user, only: [:update,:edit]
  before_action :ensure_guest_user, only: [:edit]
+
  def index
   @users = User.where.not(is_deleted: true)
+  @users = User.page(params[:page])
  end
 
  def show
@@ -18,7 +20,7 @@ class Public::UsersController < ApplicationController
  def update
   @user = User.find(params[:id])
   if @user.update(user_params)
- 	  redirect_to user_path(@user), notice: "You have updated user successfully."
+ 	  redirect_to user_path(@user), notice: "情報を更新しました"
   else
  		render :edit
   end

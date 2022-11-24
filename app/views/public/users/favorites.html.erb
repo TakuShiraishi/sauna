@@ -1,5 +1,4 @@
 <%= render 'layouts/header'%>
-<% if @favorite_saunas.exists? %>
 <div class="container">
  <div class="card text-center">
      <div class="card-header">
@@ -51,7 +50,4 @@
     </div>
    </div>
 </div>
-<% else %>
-<p>投稿はありません</p>
-<% end %>
   <%= render 'layouts/footer'%>

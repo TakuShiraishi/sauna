@@ -1,4 +1,12 @@
 <%= render 'layouts/header'%>
+<% if @sauna.errors.any? %>
+  <%= @sauna.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @sauna.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 col-md-8 col-lg-6 px-6 px-sm-0 mx-auto">

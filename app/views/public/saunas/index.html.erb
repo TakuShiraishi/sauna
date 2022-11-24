@@ -1,7 +1,8 @@
 <%= render 'layouts/header'%>
 <%= render 'public/searchs/sauna' %>
 <%= render 'public/searchs/form' %>
-   <div class="container">
+<%= flash[:notice] %>
+   <div class="container pb-5">
     <div class="card text-center">
      <div class="card-header">
        レビュー一覧
@@ -50,6 +51,7 @@
                </div>
                <% end %>
             </div>
+            <%= paginate @saunas %>
          </div>
       </div>
      </div>

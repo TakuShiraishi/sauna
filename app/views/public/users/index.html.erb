@@ -1,6 +1,6 @@
 <%= render 'layouts/header'%>
 <%= render 'public/searchs/user' %>
-<div class="container">
+<div class="container pb-5">
 <div class="card text-center">
   <div class="card-header">
     ユーザー一覧
@@ -20,6 +20,7 @@
             </div>
             <% end %>
           </div>
+          <%= paginate @users %>
       </div>
     </div>
 </div>

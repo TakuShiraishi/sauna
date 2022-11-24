@@ -9,7 +9,7 @@ class Public::SaunasController < ApplicationController
 
  def index
  	@user = current_user
- 	@saunas = Sauna.all.eager_load(:user).preload(:comments,:favorites)
+ 	@saunas = Sauna.page(params[:page]).eager_load(:user).preload(:comments,:favorites)
  	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
  	@sauna = Sauna.new
  end
@@ -29,8 +29,8 @@ class Public::SaunasController < ApplicationController
    flash[:notice] = "サウナの投稿ができました"
   else
    @user = current_user
-   @saunas = Sauna.all
-   render :index
+   @saunas = Sauna.page(params[:page]).eager_load(:user).preload(:comments,:favorites)
+   render :new
   end
  end
 

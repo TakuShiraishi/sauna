@@ -14,8 +14,12 @@ class Public::CommentsController < ApplicationController
 		sauna = Sauna.find(params[:sauna_id])
 		comment = current_user.comments.new(comment_params)
 		comment.sauna_id = sauna.id
-		comment.save!
-		redirect_to sauna_comments_path(sauna)
+   if comment.save!
+  		redirect_to sauna_comments_path(sauna)
+  		flash[:notice] = "コメントしました"
+   else
+		  render:new
+   end
  end
 
   def destroy
