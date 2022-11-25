@@ -1,12 +1,4 @@
 <%= render 'layouts/header'%>
-<% if @comment.errors.any? %>
-  <%= @comment.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @comment.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
 <div class="container">
 　<div class="row">
 　  <div class="col-md-12 col-md-12 col-lg-6 px-6 px-sm-0 mx-auto">
@@ -14,6 +6,7 @@
       <div class="card-header">
          コメントを書き込む
        </div>
+       <%= flash[:notice] %>
          <div class="card-body">
            <div class="row">
             <%= form_with model: [@sauna, @comment], local: true do |f| %>

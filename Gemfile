@@ -61,6 +61,7 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'rails-i18n', '~> 6.0'
 gem 'kaminari','~> 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
 gem 'dotenv-rails'
 group :production do

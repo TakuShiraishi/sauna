@@ -3,6 +3,7 @@ class Admin::UsersController < ApplicationController
  def index
   @users = User.where.not(is_deleted: true)
   # 削除されていたら表示されない
+  @users = User.page(params[:page])
  end
 
  def show
@@ -24,6 +25,7 @@ class Admin::UsersController < ApplicationController
   # is_deletedをtrue削除フラグ
   if current_user
    reset_session
+   # セッション情報を全て削除します。
    # ユーザーがログインしていて退会したら
   url = root_path
   else

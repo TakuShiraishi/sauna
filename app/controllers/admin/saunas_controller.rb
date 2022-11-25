@@ -2,7 +2,7 @@ class Admin::SaunasController < ApplicationController
 
  def index
  	@user = current_user
- 	@saunas = Sauna.all.eager_load(:user).preload(:comments,:favorites)
+ 		@saunas = Sauna.page(params[:page]).eager_load(:user)
  	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
  	@sauna = Sauna.new
  end
