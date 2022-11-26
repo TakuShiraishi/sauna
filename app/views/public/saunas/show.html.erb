@@ -3,59 +3,59 @@
   <div class="row">
     <div class="col-md-12 col-md-8 col-lg-8 px-8 px-sm-0 mx-auto">
       <div class="card text-center">
-     <div class="card-header">
-       サウナ詳細画面
-       </div>
-       <div class="card-body">
-          <div class="row">
-            <div class="col-md-12 col-12">
-              <div class="card">
-                 <div class="card-header">
-                     <strong><%= @sauna.name %></strong></br>
-　　　　　　　　　</div>
-                    <div class="card-body">
-              	    <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
-                   <div id="post_raty">
-                    &emsp;
-                    評価：
+         <div class="card-header">
+           サウナ詳細画面
+           </div>
+           <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <div class="card">
+                     <div class="card-header">
+                      <strong><%= @sauna.name %></strong></br>
+                     </div>
+                       <div class="card-body">
+                  	    <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
+                       <div id="post_raty">
+                        &emsp;
+                        評価：
+                      </div>
+                        <strong><%= @sauna.comment %></strong></br>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">住所:<%= @sauna.prefecture %><%= @sauna.place %></li>
+                          <li class="list-group-item">サウナ室温度:<%= @sauna.temperature %>度</li>
+                          <li class="list-group-item">入浴料:<%= @sauna.price %>円</li>
+                          <li class="list-group-item">利用時間:<%= @sauna.time %>時間</li>
+                          <li class="list-group-item">定休日:<%= @sauna.holiday %>曜日</li>
+                          <li class="list-group-item">投稿日:<%= I18n.l @sauna.created_at %></li>
+                          <!--lだけではNoMethodErrorになる。-->
+                          <!--その場合は、lの代わりにI18n.l-->
+                          <% if current_user != @sauna.user%>
+                           <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
+                          <% end %>
+                          <% if @sauna.user == current_user %>
+                          <li class="list-group-item"><%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
+                           <%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
+                          <% else %>
+                          <% end %>
+                        </ul>
+                        <script>
+                           $('#post_raty').empty();
+                          var elem = document.getElementById('post_raty');
+                          var opt = {
+                            score: <%= @sauna.star || 0 %>,
+                            starOn: "<%= asset_path('star-on.png') %>",
+                            starOff: "<%= asset_path('star-off.png') %>",
+                            starHalf: "<%= asset_path('star-half.png') %>",
+                            };
+                          raty(elem,opt);
+                        </script>
+                     </div>
                   </div>
-                  <strong><%= @sauna.comment %></strong></br>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">住所:<%= @sauna.prefecture %><%= @sauna.place %></li>
-                    <li class="list-group-item">サウナ室温度:<%= @sauna.temperature %>度</li>
-                    <li class="list-group-item">入浴料:<%= @sauna.price %>円</li>
-                    <li class="list-group-item">利用時間:<%= @sauna.time %>時間</li>
-                    <li class="list-group-item">定休日:<%= @sauna.holiday %>曜日</li>
-                    <li class="list-group-item">投稿日:<%= I18n.l @sauna.created_at %></li>
-                    <!--lだけではNoMethodErrorになる。-->
-                    <!--その場合は、lの代わりにI18n.l-->
-                    <% if current_user != @sauna.user%>
-                     <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
-                    <% end %>
-                    <% if @sauna.user == current_user %>
-                    <li class="list-group-item"><%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
-                     <%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
-                    <% else %>
-                    <% end %>
-                  </ul>
-                  <script>
-                     $('#post_raty').empty();
-                    var elem = document.getElementById('post_raty');
-                    var opt = {
-                      score: <%= @sauna.star || 0 %>,
-                      starOn: "<%= asset_path('star-on.png') %>",
-                      starOff: "<%= asset_path('star-off.png') %>",
-                      starHalf: "<%= asset_path('star-half.png') %>",
-                      };
-                    raty(elem,opt);
-                  </script>
-                  </div>
-                </div>
-              </div>
+               </div>
             </div>
-        </div>
-      </div>
-   </div>
- </div>
+          </div>
+       </div>
+    </div>
+  </div>
 </div>
 <%= render 'layouts/footer'%>

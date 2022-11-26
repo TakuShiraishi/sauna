@@ -1,36 +1,36 @@
 <%= render 'layouts/header'%>
-    <div class="container ">
-      <div class="card text-center">
-       <div class="card-header">
-        <%= @sauna.name %>のコメント一覧ページ
-       　</div>
-       　　<div id="post_raty"></div>
-         <div id="favorite_btn_<%= @sauna.id %>">
-          <%= render 'public/favorites/favorite', sauna: @sauna %>
-          </div>
-           <div class="card-body">
-            <div class="row">
-              <% @comments.each do |comment| %>
-               <div class="col-12 col-sm-6 col-md-4 mb-3">
-                <div class="card">
-                <div class="card-header">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
-                    <li class="list-group-item"><%= comment.comment %></li>
-                    <li class="list-group-item">投稿日:<%= I18n.l comment.user.created_at %></li>
-                    <% if comment.user == current_user %>
-                     <li class="list-group-item"><%= link_to '削除',sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
-                     <% else %>
-                    <% end %>
-                  </ul>
-               </div>
-           </div>
-         </div>
-        <% end %>
-        </div>
+<div class="container ">
+  <div class="card text-center">
+     <div class="card-header">
+      <%= @sauna.name %>のコメント一覧ページ
+     　</div>
+     　　<div id="post_raty"></div>
+             <div id="favorite_btn_<%= @sauna.id %>">
+              <%= render 'public/favorites/favorite', sauna: @sauna %>
+              </div>
+               <div class="card-body">
+                <div class="row">
+                    <% @comments.each do |comment| %>
+                  <div class="col-12 col-sm-6 col-md-4 mb-3">
+                    <div class="card">
+                      <div class="card-header">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
+                          <li class="list-group-item"><%= comment.comment %></li>
+                          <li class="list-group-item">投稿日:<%= I18n.l comment.user.created_at %></li>
+                          <% if comment.user == current_user %>
+                          <li class="list-group-item"><%= link_to '削除',sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
+                          <% else %>
+                          <% end %>
+                        </ul>
+                      </div>
+                     </div>
+                    </div>
+                      <% end %>
+                 </div>
         <%= paginate @comments, theme: 'bootstrap-5' %>
+        </div>
     </div>
-  </div>
 </div>
 <script>
 var elem = document.getElementById('post_raty');
