@@ -1,5 +1,4 @@
 <%= render 'layouts/header'%>
-<%= flash[:notice] %>
     <div class="container ">
       <div class="card text-center">
        <div class="card-header">
@@ -19,7 +18,7 @@
                     <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
                     <li class="list-group-item"><%= comment.comment %></li>
                     <li class="list-group-item">投稿日:<%= I18n.l comment.user.created_at %></li>
-                    <% if @comments == current_user %>
+                    <% if comment.user == current_user %>
                      <li class="list-group-item"><%= link_to '削除',sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
                      <% else %>
                     <% end %>

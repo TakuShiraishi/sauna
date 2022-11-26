@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
  def index
   @users = User.where.not(is_deleted: true)
-  @users = User.page(params[:page])
+  @users = @users.page(params[:page])
  end
 
  def show

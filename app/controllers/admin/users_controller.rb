@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
  def index
   @users = User.where.not(is_deleted: true)
   # 削除されていたら表示されない
-  @users = User.page(params[:page])
+  @users = @users.page(params[:page])
  end
 
  def show
@@ -16,23 +16,13 @@ class Admin::UsersController < ApplicationController
  end
 
  def withdraw
-  if current_user
-   @user = current_user
-  else
-   @user = User.find(params[:user_id])
-  end
-  @user.update(is_deleted: true)
+  # byebug
+  @user = User.find(params[:user_id])
+  @user.is_deleted = true
+  @user.save(:validate => false)
+  # バリデーションがかかっていたため上の記述
   # is_deletedをtrue削除フラグ
-  if current_user
-   reset_session
-   # セッション情報を全て削除します。
-   # ユーザーがログインしていて退会したら
-  url = root_path
-  else
-  url = admin_users_path
-  end
-  redirect_to url
-  # root_pathかadmin_users_pathに遷移する
+  redirect_to admin_users_path
  end
 
  private

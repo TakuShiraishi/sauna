@@ -1,4 +1,26 @@
 ja:
+  activerecord:
+    attributes:
+      sauna:
+        name: '個室サウナ名'
+        prefecture: '都道府県名'
+        temperature: 'サウナ室温度'
+        place: '住所'
+        price: '料金'
+        time: '利用時間'
+        comment: 'レビュー'
+      user:
+        name: '名前'
+  errors:
+    messages:
+      already_confirmed: 'は既に登録済みです。ログインしてください。'
+      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
+      expired: 'の有効期限が切れました。新しくリクエストしてください。'
+      not_found: 'は見つかりませんでした。'
+      not_locked: 'は凍結されていません。'
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした:"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
   time:
     formats:
       default: "%Y/%-m/%-d"
@@ -51,13 +73,3 @@ ja:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       unlocked: 'アカウントを凍結解除しました。'
-  errors:
-    messages:
-      already_confirmed: 'は既に登録済みです。ログインしてください。'
-      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
-      expired: 'の有効期限が切れました。新しくリクエストしてください。'
-      not_found: 'は見つかりませんでした。'
-      not_locked: 'は凍結されていません。'
-      not_saved:
-        one: "エラーが発生したため %{resource} は保存されませんでした:"
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"

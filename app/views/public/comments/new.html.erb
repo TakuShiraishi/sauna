@@ -6,7 +6,6 @@
       <div class="card-header">
          コメントを書き込む
        </div>
-       <%= flash[:notice] %>
          <div class="card-body">
            <div class="row">
             <%= form_with model: [@sauna, @comment], local: true do |f| %>

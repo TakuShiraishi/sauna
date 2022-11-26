@@ -16,8 +16,6 @@
               <li class="list-group-item">年齢:<%= @user.birth_date %>歳</li>
               <li class="list-group-item">性別:<%= @user.gender %></li>
               <li class="list-group-item">メールアドレス:<%= @user.email %></li>
-              <li class="list-group-item">フォロー:<%= link_to @user.followings.count, user_followings_path(@user) %></li>
-              <li class="list-group-item">フォロワー:<%= link_to @user.followers.count, user_followers_path(@user) %></li>
               <li class="list-group-item"><%= link_to '投稿内容を確認する', admin_sauna_show_index_sauna_path(@user), class: " item_show_btn btn btn-success" %></li>
               <li class="list-group-item"><%= link_to '退会させる', admin_user_unsubscribe_path(@user.id), class: "glyphicon glyphicon-tint btn btn-danger"%></li>
             </ul>
