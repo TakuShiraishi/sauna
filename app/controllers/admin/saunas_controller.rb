@@ -23,6 +23,7 @@ class Admin::SaunasController < ApplicationController
   sauna = Sauna.find(params[:id])
   sauna.destroy
   redirect_to admin_saunas_path
+  flash[:notice] = "サウナの投稿を削除しました"
  end
 
  def sauna_params

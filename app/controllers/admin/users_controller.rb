@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
   # バリデーションがかかっていたため上の記述
   # is_deletedをtrue削除フラグ
   redirect_to admin_users_path
+  flash[:notice] = "ユーザーを退会させました"
  end
 
  private
