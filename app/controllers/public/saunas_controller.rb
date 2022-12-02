@@ -23,6 +23,7 @@ class Public::SaunasController < ApplicationController
 
  def create
   @sauna = Sauna.new(sauna_params)
+   @sauna.score = Language.get_data(sauna_params[:comment])  #この行を追加
   @sauna.user_id = current_user.id
   if @sauna.save
    redirect_to saunas_path(@sauna.id)
@@ -53,6 +54,8 @@ class Public::SaunasController < ApplicationController
 
  def update
   @sauna = Sauna.find(params[:id])
+  @sauna.score = Language.get_data(sauna_params[:comment])  #この行を追加
+  @sauna.save
   if @sauna.update(sauna_params)
    redirect_to sauna_path(@sauna.id), notice: "サウナ投稿を更新しました"
   else
