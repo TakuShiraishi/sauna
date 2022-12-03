@@ -2,11 +2,9 @@ class Admin::SaunasController < ApplicationController
 
  def index
  	@user = current_user
- 		@saunas = Sauna.page(params[:page]).eager_load(:user).sort {|a,b|
- 		 b.score.where(created_at: from...to).count <=>
- 		 a.score.where(created_at: from...to).count
- 		 }
- 	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
+ 	 @saunas = Sauna.eager_load(:user).page(params[:page]).order(:saunas, score: :desc)
+ 		# sort {|a,b| b.score <=> a.score }
+ 	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減,感情分析並び替え
  	@sauna = Sauna.new
  end
 

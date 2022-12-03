@@ -9,7 +9,9 @@ class Public::SaunasController < ApplicationController
 
  def index
  	@user = current_user
- 	@saunas = Sauna.page(params[:page]).eager_load(:user).preload(:comments,:favorites)
+ 	@saunas = Sauna.eager_load(:user).preload(:comments,:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size }
+ 	# byebug
+ 	@saunas = Kaminari.paginate_array(@saunas).page(params[:page]).per(6)
  	# N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
  	@sauna = Sauna.new
  end
