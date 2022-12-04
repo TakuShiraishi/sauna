@@ -17,7 +17,7 @@
                      <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
                      <strong><%= @sauna.comment %></strong></br>
                      <ul class="list-group list-group-flush">
-                       <li class="list-group-item">住所:<%= @sauna.prefecture %><%= @sauna.place %></li>
+                       <li class="list-group-item"><div id="map"></div>住所:</br><%= @sauna.post_code %></br><%= @sauna.prefecture %><%= @sauna.place %><%= @sauna.address %></li>
                        <li class="list-group-item">サウナ室温度:<%= @sauna.temperature %>度</li>
                        <li class="list-group-item">入浴料:<%= @sauna.price %>円</li>
                        <li class="list-group-item">利用時間:<%= @sauna.time %>時間</li>
@@ -25,6 +25,30 @@
                        <li class="list-group-item">投稿日:<%= I18n.l @sauna.created_at %></li>
                        <li class="list-group-item"><%= link_to '削除',admin_sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
                     </ul>
+                    <style>#map{ height: 450px;}</style>
+                        <script>
+                        let map;
+                        function initMap() {
+                          geocoder = new google.maps.Geocoder()
+                          map = new google.maps.Map(document.getElementById('map'), {
+                            center: {
+                                      lat: gon.sauna.latitude,
+                                      lng: gon.sauna.longitude
+                                    },
+                            zoom: 16,
+                          });
+
+                          // ピン立て
+                          marker = new google.maps.Marker({
+                            position: {
+                                        lat: gon.sauna.latitude,
+                                        lng: gon.sauna.longitude
+                                      },
+                            map: map
+                          });
+                        }
+                      </script>
+                      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>
                   </div>
                 </div>
               </div>

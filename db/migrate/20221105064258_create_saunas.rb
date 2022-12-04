@@ -13,6 +13,8 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
       t.string :address
       t.integer :price
       t.string :time
+      t.float :latitude
+      t.float :longitude
       t.integer :star, null: false,default: 0
       t.timestamps
     end

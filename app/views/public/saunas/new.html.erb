@@ -18,9 +18,11 @@
       		    <%= form_with model:@sauna do |f| %>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">個室サウナ名:<%= f.text_field :name, class: 'form-control sauna_name' %></li>
-                <li class="list-group-item">サウナ画像:<%= f.file_field :profile_image %></li>
+                <li class="list-group-item">サウナ画像:</br><%= f.file_field :profile_image %></li>
+                <li class="list-group-item">郵便番号:<%= f.text_field :post_code,class: 'form-control sauna_name' %></li>
                 <li class="list-group-item">都道府県:<%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></li>
-                <li class="list-group-item">住所:<%= f.text_field :place, class: 'form-control sauna_name' %></li>
+                <li class="list-group-item">住所:<%= f.text_field :place, class: 'form-control sauna_name', placeholder: "郵便番号を入れれば自動で入ります" %></li>
+                <li class="list-group-item">番地:<%= f.text_field :address, class: 'form-control sauna_name' %></li>
                 <li class="list-group-item">サウナ室温度:<%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %></li>
                 <li class="list-group-item">入浴料:<%= f.text_field :price, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
                 <li class="list-group-item">利用時間:<%= f.text_field :time, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>

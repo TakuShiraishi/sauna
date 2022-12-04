@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
@@ -65,10 +64,13 @@ gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
 gem 'dotenv-rails'
 group :production do
-  gem 'mysql2'
+  # gem 'mysql2'
   # gitにあげる時のみコメントアウト外す
 end
 
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+
+gem 'gon'
+gem 'geocoder'

@@ -12,6 +12,7 @@ class Admin::SaunasController < ApplicationController
   @sauna = Sauna.find(params[:id])
   @saunas = Sauna.all
   @comment = Comment.new
+  gon.sauna = @sauna
  end
 
  def show_index_sauna

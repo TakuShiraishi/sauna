@@ -1,10 +1,13 @@
 class Sauna < ApplicationRecord
  belongs_to :user
-  validates :prefecture,:name,:temperature,:place,:price,:time,presence: true
+  validates :name,:post_code,:prefecture,:place,:address,:temperature,:price,:time,:holiday,presence: true
   validates :comment,presence:true,length:{maximum:200}
  has_one_attached :profile_image
  has_many :favorites, dependent: :destroy
  has_many :comments, dependent: :destroy
+
+ geocoded_by :post_code
+  after_validation :geocode
 
   def get_profile_image(width, height)
     unless profile_image.attached?

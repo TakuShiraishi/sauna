@@ -3,7 +3,10 @@ ja:
     attributes:
       sauna:
         name: '個室サウナ名'
+        post_code: '郵便番号'
         prefecture: '都道府県名'
+        address: '番地'
+        holiday: '定休日'
         temperature: 'サウナ室温度'
         place: '住所'
         price: '料金'
