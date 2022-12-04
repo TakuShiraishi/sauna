@@ -24,6 +24,7 @@ class Public::SaunasController < ApplicationController
 
 
  def create
+  byebug
   @sauna = Sauna.new(sauna_params)
    @sauna.score = Language.get_data(sauna_params[:comment])  #この行を追加
   @sauna.user_id = current_user.id
