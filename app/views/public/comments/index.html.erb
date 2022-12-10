@@ -2,12 +2,13 @@
 <div class="container ">
   <div class="card text-center">
      <div class="card-header">
-      <%= @sauna.name %>のコメント一覧ページ
-     　</div>
-     　　<div id="post_raty"></div>
+     　<h3><strong><%= link_to @sauna.name , sauna_path(@sauna.id)  %>コメント一覧ページ</strong></h3>
+         <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
+            <div id="post_raty"></div>
              <div id="favorite_btn_<%= @sauna.id %>">
               <%= render 'public/favorites/favorite', sauna: @sauna %>
               </div>
+                </div>
                <div class="card-body">
                 <div class="row">
                     <% @comments.each do |comment| %>
@@ -15,12 +16,17 @@
                     <div class="card">
                       <div class="card-header">
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
+                          <li class="list-group-item"><h5><%= comment.user.name %></h5></li>
+                          <li class="list-group-item"><%= image_tag comment.user.get_profile_image  %></li>
                           <li class="list-group-item"><%= comment.comment %></li>
                           <li class="list-group-item">投稿日:<%= I18n.l comment.user.created_at %></li>
                           <% if comment.user == current_user %>
                           <li class="list-group-item"><%= link_to '削除',sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
                           <% else %>
+                          <% end %>
+                          <% if current_user != comment.user%>
+                           <li class="list-group-item"><div id="comment_favorite_btn_<%= comment.id %>">
+                             <%= render 'public/comment_favorites/comment_favorite', comment: comment, sauna: @sauna  %></div></li>
                           <% end %>
                         </ul>
                       </div>

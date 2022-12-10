@@ -2,8 +2,9 @@
 <div class="container">
   <div class="card text-center">
     <div class="card-header">
-      <%= @sauna.name %>コメント一覧ページ
-    </div>
+    <h2><strong><%= link_to @sauna.name , admin_sauna_path(@sauna.id)  %>コメント一覧ページ</strong></h2>
+    <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
+    　</div>
       <div class="card-body">
     　   <div class="row">
         	<% @comments.each do |comment| %>
@@ -11,7 +12,8 @@
         	  <div class="card">
         	    <div class="card-header">
         	      <ul class="list-group list-group-flush">
-        	        <li class="list-group-item"><%= comment.user.name %>さんのコメント</li>
+        	        <li class="list-group-item"><%= comment.user.name %></li>
+        	        <li class="list-group-item"><%= image_tag comment.user.get_profile_image  %></li>
         	        <li class="list-group-item"><%= comment.comment %></li>
                   <li class="list-group-item"><%= I18n.l comment.user.created_at %></li>
                   <li class="list-group-item"><%= link_to '削除',admin_sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>

@@ -23,8 +23,8 @@
                         評価：
                         </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">レビュー:<%= sauna.comment %></li>
-                            <li class="list-group-item">住所:<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %><%= sauna.address %></li>
+                            <li class="list-group-item"><%= sauna.comment %></li>
+                            <li class="list-group-item">住所:〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
                             <li class="list-group-item">サウナ室温度:<%= sauna.temperature %>度</li>
                             <li class="list-group-item">入浴料:<%= sauna.price %>円</li>
                             <li class="list-group-item">利用時間:<%= sauna.time %>時間</li>
