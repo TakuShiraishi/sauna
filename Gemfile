@@ -64,7 +64,7 @@ gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
 gem 'dotenv-rails'
 group :production do
-  # gem 'mysql2'
+  gem 'mysql2'
   # gitにあげる時のみコメントアウト外す
 end
 
