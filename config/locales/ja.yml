@@ -11,6 +11,7 @@ ja:
         place: '住所'
         price: '料金'
         time: '利用時間'
+        star: '星'
         comment: 'レビュー'
       user:
         name: '名前'

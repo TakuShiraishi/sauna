@@ -4,7 +4,7 @@
     <div class="col-md-12 col-md-8 col-lg-6 px-6 px-sm-0 mx-auto">
       <div class="card text-center">
         <div class="card-header">
-          投稿画面
+          <h4>投稿画面</h4>
          </div>
           <div class="card-body">
            <% if @sauna.errors.any? %>
@@ -17,20 +17,20 @@
            <% end %>
       		    <%= form_with model:@sauna do |f| %>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">個室サウナ名:<%= f.text_field :name, class: 'form-control sauna_name' %></li>
-                <li class="list-group-item">サウナ画像:</br><%= f.file_field :profile_image %></li>
-                <li class="list-group-item">郵便番号:<%= f.text_field :post_code,class: 'form-control sauna_name' %></li>
-                <li class="list-group-item">都道府県:<%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></li>
-                <li class="list-group-item">住所:<%= f.text_field :place, class: 'form-control sauna_name', placeholder: "郵便番号を入れれば自動で入ります" %></li>
-                <li class="list-group-item">番地:<%= f.text_field :address, class: 'form-control sauna_name' %></li>
-                <li class="list-group-item">サウナ室温度:<%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %></li>
-                <li class="list-group-item">入浴料:<%= f.text_field :price, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
-                <li class="list-group-item">利用時間:<%= f.text_field :time, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
-                <li class="list-group-item">定休日:<%= f.text_field :holiday, class: 'form-control sauna_name', placeholder: "例火曜日の場合⇨火" %></li>
-                <li class="list-group-item">レビュー:<%= f.text_area :comment, rows: '5', cols: '49', placeholder: "レビューを入力", class: 'form-control' %>
+                <li class="list-group-item"><strong>個室サウナ名:</strong><%= f.text_field :name, class: 'form-control sauna_name' %></li>
+                <li class="list-group-item"><strong>サウナ画像:</strong></br><%= f.file_field :profile_image %></li>
+                <li class="list-group-item"><strong>郵便番号:</strong><%= f.text_field :post_code,class: 'form-control sauna_name', placeholder: "例110-0002"  %></li>
+                <li class="list-group-item"><strong>都道府県:</strong><%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></li>
+                <li class="list-group-item"><strong>住所:</strong><%= f.text_field :place, class: 'form-control sauna_name', placeholder: "郵便番号を入れれば自動で入ります" %></li>
+                <li class="list-group-item"><strong>番地:</strong><%= f.text_field :address, class: 'form-control sauna_name' %></li>
+                <li class="list-group-item"><strong>サウナ室温度:</strong><%= f.text_field :temperature, class: 'form-control sauna_temperature', placeholder: "数字のみ記入お願いします" %></li>
+                <li class="list-group-item"><strong>入浴料:</strong><%= f.text_field :price, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
+                <li class="list-group-item"><strong>利用時間:</strong><%= f.text_field :time, class: 'form-control sauna_name', placeholder: "数字のみ記入お願いします" %></li>
+                <li class="list-group-item"><strong>定休日:</strong><%= f.text_field :holiday, class: 'form-control sauna_name', placeholder: "例火曜日の場合⇨火" %></li>
+                <li class="list-group-item"><strong>レビュー:</strong><%= f.text_area :comment, rows: '5', cols: '49', placeholder: "レビューを入力", class: 'form-control' %>
                 </br><div id="post_raty">
                       &emsp;
-                      評価：
+                      <strong>評価：</strong>
                 </div>
                 </li>
                 <li class="list-group-item mb-3"><%= f.submit '投稿',class:"btn btn-primary"%></li>

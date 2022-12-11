@@ -4,25 +4,26 @@
     <div class="col-md-12 col-md-8 col-lg-8 px-8 px-sm-0 mx-auto">
       <div class="card text-center">
      <div class="card-header">
-       サウナ詳細画面
+       <h4>サウナ詳細画面</h4>
        </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-12 col-12">
               <div class="card">
                  <div class="card-header">
-                   <strong><%= @sauna.name %></strong></br>
+                   <h4><strong><%= @sauna.name %></strong></h4>
                    </div>
                    <div class="card-body">
                      <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
+                     <div id="map"></div>
                      <strong><%= @sauna.comment %></strong></br>
                      <ul class="list-group list-group-flush">
-                       <li class="list-group-item"><div id="map"></div>住所:〒</br><%= @sauna.post_code %></br><%= @sauna.prefecture %><%= @sauna.place %></br><%= @sauna.address %></li>
-                       <li class="list-group-item">サウナ室温度:<%= @sauna.temperature %>度</li>
-                       <li class="list-group-item">入浴料:<%= @sauna.price %>円</li>
-                       <li class="list-group-item">利用時間:<%= @sauna.time %>時間</li>
-                       <li class="list-group-item">定休日:<%= @sauna.holiday %>曜日</li>
-                       <li class="list-group-item">投稿日:<%= I18n.l @sauna.created_at %></li>
+                       <li class="list-group-item"><h5><strong>住所:</strong></h5>〒</br><%= @sauna.post_code %></br><%= @sauna.prefecture %><%= @sauna.place %></br><%= @sauna.address %></li>
+                       <li class="list-group-item"><h5><strong>サウナ室温度:</strong></h5><%= @sauna.temperature %>度</li>
+                       <li class="list-group-item"><h5><strong>入浴料:</strong></h5><%= @sauna.price %>円</li>
+                       <li class="list-group-item"><h5><strong>利用時間:</strong></h5><%= @sauna.time %>時間</li>
+                       <li class="list-group-item"><h5><strong>定休日:</strong></h5><%= @sauna.holiday %>曜日</li>
+                       <li class="list-group-item"><h5><strong>投稿日:</strong></h5><%= I18n.l @sauna.created_at %></li>
                        <li class="list-group-item"><%= link_to '削除',admin_sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
                     </ul>
                     <style>#map{ height: 450px;}</style>

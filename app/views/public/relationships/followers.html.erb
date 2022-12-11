@@ -3,7 +3,7 @@
 <div class="container">
 <div class="card text-center">
   <div class="card-header">
-    フォロワー
+    <h4>フォロワー</h4>
    </div>
     <div class="card-body">
       <div class="row">
@@ -11,7 +11,7 @@
     	   <div class="col-12 col-sm-6 col-md-4 mb-3">
     	     <div class="card">
               <p class="card-text"><%= image_tag user.get_profile_image  %></p>
-              <p class="card-text"><%= user.name %></p>
+              <p class="card-text"><h5><%= user.name %></h5></p>
               <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
               <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
             </div>

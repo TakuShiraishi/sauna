@@ -1,6 +1,6 @@
 class Sauna < ApplicationRecord
  belongs_to :user
-  validates :name,:post_code,:prefecture,:place,:address,:temperature,:price,:time,:holiday,presence: true
+  validates :name,:post_code,:prefecture,:place,:address,:temperature,:price,:time,:holiday,:star,presence: true
   validates :comment,presence:true,length:{maximum:200}
  has_one_attached :profile_image
  has_many :favorites, dependent: :destroy

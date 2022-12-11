@@ -2,7 +2,7 @@
 <div class="container">
   <div class="card text-center">
      <div class="card-header">
-       行ってみたい一覧ページ
+       <h4>行ってみたい一覧ページ</h4>
       </div>
         <div class="card-body">
          <div class="row">
@@ -10,24 +10,26 @@
             <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="card">
                 <div class="card-header">
-                <strong><%= sauna.name %></strong></br>
+                <h4><strong><%= sauna.name %></strong></h4></br>
                 </div>
                   <div class="card-body">
+                    <%= image_tag sauna.get_profile_image(100,100)%>
                    <div id="favorite_btn_<%= sauna.id %>">
                      <%= render 'public/favorites/favorite', sauna: sauna %>
                    </div>
-                    <%= image_tag sauna.get_profile_image(100,100)%>
                     <div id="post_raty_<%= sauna.id %>">
                      &emsp;
                      評価：
                     </div>
                       <ul class="list-group list-group-flush">
-                       <li class="list-group-item"><%= sauna.comment %></li>
-                       <li class="list-group-item">住所:〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
-                       <li class="list-group-item">サウナ室温度:<%= sauna.temperature %>度</li>
-                       <li class="list-group-item">入浴料:<%= sauna.price %>円</li>
-                       <li class="list-group-item">利用時間:<%= sauna.time %>時間</li>
-                       <li class="list-group-item">定休日:<%= sauna.holiday %>曜日</li>
+                       <li class="list-group-item"><strong>AIによるレビュー感情分析:</strong><%= sauna.score %></li>
+                       <li class="list-group-item"><strong>住所:</strong>〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
+                       <li class="list-group-item"><strong>サウナ室温度:</strong><%= sauna.temperature %>度</li>
+                       <li class="list-group-item"><strong>入浴料:</strong><%= sauna.price %>円</li>
+                       <li class="list-group-item"><strong>利用時間:</strong><%= sauna.time %>時間</li>
+                       <li class="list-group-item"><strong>定休日:</strong><%= sauna.holiday %>曜日</li>
+                       <li class="list-group-item"><strong>投稿日:</strong><%= I18n.l sauna.created_at %></li>
+                       <li class="list-group-item"><strong>コメントを見る:</strong> <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></li>
                        <li class="list-group-item"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></li>
                       </ul>
                     <script>

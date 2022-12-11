@@ -3,22 +3,22 @@
     <div class="col-md-12 col-md-12 col-lg-7 px-7 px-sm-0 mx-auto">
       <div class="card text-center">
        <div class="card-header">
-        マイページ
+        <h4>マイページ</h4>
          </div>
           <div class="card-body">
            <div class="row">
              <div class="col-md-12 col-12">
               <div class="card">
                <div class="card-header">
-                <strong><%= @user.name %></strong></br>
+                <h4><strong><%= @user.name %></strong></h4>
                </div>
                <div class="card-body">
                 <%= image_tag @user.get_profile_image  %>
               <ul class="list-group list-group-flush">
-               <li class="list-group-item">年齢:<%= @user.birth_date %>歳</li>
-               <li class="list-group-item">性別:<%= @user.gender %></li>
-               <li class="list-group-item">フォロー:<%= link_to @user.followings.count, user_followings_path(@user) %></li>
-               <li class="list-group-item">フォロワー:<%= link_to @user.followers.count, user_followers_path(@user) %></li>
+               <li class="list-group-item"><strong>年齢:</strong><%= @user.birth_date %>歳</li>
+               <li class="list-group-item"><strong>性別:</strong><%= @user.gender %></li>
+               <li class="list-group-item"><strong>フォロー:</strong><%= link_to @user.followings.count, user_followings_path(@user) %></li>
+               <li class="list-group-item"><strong>フォロワー:</strong><%= link_to @user.followers.count, user_followers_path(@user) %></li>
                <% if @user == current_user && @user.name != "guestuser" %>
                 <li class="list-group-item"><%= link_to "編集する", edit_user_path,class:"btn btn-primary" %></li>
                <% else %>
