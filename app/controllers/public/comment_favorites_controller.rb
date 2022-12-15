@@ -8,7 +8,7 @@ class Public::CommentFavoritesController < ApplicationController
  end
 
   def destroy
-   #byebug
+  
    @comment = Comment.find(params[:comment_id])
    @sauna = Sauna.find(params[:sauna_id])
    comment_favorite = current_user.comment_favorites.find_by(comment_id: @comment.id)
