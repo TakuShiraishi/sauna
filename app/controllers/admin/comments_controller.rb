@@ -1,15 +1,14 @@
 class Admin::CommentsController < ApplicationController
-
- def index
-		@comment = Comment.new
+  def index
+    @comment = Comment.new
 		@sauna = Sauna.find(params[:sauna_id])
 		@comments = @sauna.comments.all
- end
+  end
 
   def destroy
-  	Comment.find(params[:id]).destroy
-  	redirect_to admin_sauna_comments_path(params[:sauna_id])
-  	flash[:notice] = "コメントを削除できました"
+    Comment.find(params[:id]).destroy
+    redirect_to admin_sauna_comments_path(params[:sauna_id])
+    flash[:notice] = "コメントを削除できました"
   end
 
   private
