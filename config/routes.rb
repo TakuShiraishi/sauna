@@ -22,9 +22,9 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
-       member do
+        member do
       get :favorites
-     end
+      end
     end
     resource :searchs, only: [:index] do
       get :search_sauna_result
@@ -36,17 +36,17 @@ Rails.application.routes.draw do
   end
   # 顧客用
   # URL /users/sign_in ...
-   namespace :admin do
+  namespace :admin do
     get '/'  => "homes#top", as: "/"
     resources :saunas do
-    get :show_index_sauna
-    resources :comments, only: [:destroy,:index,]
+      get :show_index_sauna
+      resources :comments, only: [:destroy,:index,]
     end
     resources :users do
-    get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
-   end
- end
+      get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+      patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
+    end
+  end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }

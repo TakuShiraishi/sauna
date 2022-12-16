@@ -4,8 +4,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :validatable
-         #:recoverable, :rememberable, :validatable
+          :recoverable, :validatable
+          
   has_one_attached :profile_image
   has_many :saunas, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
 
-   validates :name, length: { minimum: 2, maximum: 20 },uniqueness: true
+    validates :name, length: { minimum: 2, maximum: 20 },uniqueness: true
 
 
 
@@ -37,16 +37,16 @@ class User < ApplicationRecord
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
-   end
+    end
   end
 
   def self.looks(search, name)
     if search == "perfect"
       @user = User.where("name LIKE?", "#{name}")
-    　else search == "partial"
+      else search == "partial"
       @user = User.where("name LIKE?","#{name}%")
     end
-     @user = User.all
+      @user = User.all
   end
 
   def get_profile_image
