@@ -17,8 +17,8 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "./jquery.jpostal.js"
 // jquery.jpostal.jsこの記述追加
-   $(document).on('turbolinks:load' ,() => {
-       $('#sauna_post_code').jpostal({
+    $(document).on('turbolinks:load' ,() => {
+      $('#sauna_post_code').jpostal({
             postcode : [
               '#sauna_post_code'
             ],
@@ -28,7 +28,7 @@ import "./jquery.jpostal.js"
             "#sauna_address"         : "%6%7" // # 大口事務所の番地と名称が入力される
         }
       });
-   });
+    });
 
 
 

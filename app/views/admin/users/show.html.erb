@@ -3,24 +3,24 @@
   <div class="row">
     <div class="col-md-12 col-md-12 col-lg-7 px-7 px-sm-0 mx-auto">
       <div class="card text-center">
-       <div class="card-header">
-        <h4><%= @user.name %>さんの会員情報</h4>
-       </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-12 col-12">
-            <h5 class="card-title"><%= @user.name %></h5>
-            </br><%= image_tag @user.get_profile_image  %></br>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>ニックネーム:</strong><%= @user.name %></li>
-              <li class="list-group-item"><strong>年齢:</strong><%= @user.birth_date %>歳</li>
-              <li class="list-group-item"><strong>性別:</strong><%= @user.gender %></li>
-              <li class="list-group-item"><strong>メールアドレス:</strong><%= @user.email %></li>
-              <li class="list-group-item"><%= link_to '投稿内容を確認する', admin_sauna_show_index_sauna_path(@user), class: " item_show_btn btn btn-success" %></li>
-              <li class="list-group-item"><%= link_to '退会させる', admin_user_unsubscribe_path(@user.id), class: "glyphicon glyphicon-tint btn btn-danger"%></li>
-            </ul>
+        <div class="card-header">
+          <h4><%= @user.name %>さんの会員情報</h4>
+        </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <h5 class="card-title"><%= @user.name %></h5>
+                </br><%= image_tag @user.get_profile_image  %></br>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>ニックネーム:</strong><%= @user.name %></li>
+                  <li class="list-group-item"><strong>年齢:</strong><%= @user.birth_date %>歳</li>
+                  <li class="list-group-item"><strong>性別:</strong><%= @user.gender %></li>
+                  <li class="list-group-item"><strong>メールアドレス:</strong><%= @user.email %></li>
+                  <li class="list-group-item"><%= link_to '投稿内容を確認する', admin_sauna_show_index_sauna_path(@user), class: " item_show_btn btn btn-success" %></li>
+                  <li class="list-group-item"><%= link_to '退会させる', admin_user_unsubscribe_path(@user.id), class: "glyphicon glyphicon-tint btn btn-danger"%></li>
+                </ul>
+              </div>
             </div>
-           </div>
           </div>
         </div>
       </div>

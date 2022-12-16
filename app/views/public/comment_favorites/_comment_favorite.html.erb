@@ -1,9 +1,9 @@
 <% if comment.favorited_by?(current_user) %>
- <%= link_to sauna_comment_comment_favorites_path(sauna, comment), method: :delete, remote: true, class: "favorite_btn" do %>
-  いいね♥</i><%= comment.comment_favorites.count %>
+  <%= link_to sauna_comment_comment_favorites_path(sauna, comment), method: :delete, remote: true, class: "favorite_btn" do %>
+    いいね♥</i><%= comment.comment_favorites.count %>
   <% end %>
- <% else %>
+  <% else %>
   <%=link_to sauna_comment_comment_favorites_path(sauna, comment), method: :post, remote: true, class: "favorite_btn" do %>
-  いいね♡<%= comment.comment_favorites.count %>
+    いいね♡<%= comment.comment_favorites.count %>
   <% end %>
- <% end %>
+<% end %>

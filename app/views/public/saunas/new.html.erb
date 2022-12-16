@@ -5,17 +5,17 @@
       <div class="card text-center">
         <div class="card-header">
           <h4>投稿画面</h4>
-         </div>
+        </div>
           <div class="card-body">
-           <% if @sauna.errors.any? %>
-           <%= @sauna.errors.count %>件のエラーが発生しました
-           <ul>
-           <% @sauna.errors.full_messages.each do |message| %>
+          <% if @sauna.errors.any? %>
+            <%= @sauna.errors.count %>件のエラーが発生しました
+            <ul>
+            <% @sauna.errors.full_messages.each do |message| %>
             <li><%= message %></li>
             <% end %>
             </ul>
-           <% end %>
-      		    <%= form_with model:@sauna do |f| %>
+          <% end %>
+            <%= form_with model:@sauna do |f| %>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>個室サウナ名:</strong><%= f.text_field :name, class: 'form-control sauna_name' %></li>
                 <li class="list-group-item"><strong>サウナ画像:</strong></br><%= f.file_field :profile_image %></li>
@@ -37,8 +37,8 @@
               </ul>
             </div>
           </div>
-          <% end %>
-     </div>
+            <% end %>
+      </div>
   </div>
 </div>
 <script>

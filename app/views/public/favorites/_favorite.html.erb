@@ -1,9 +1,9 @@
 <% if sauna.favorited_by?(current_user) %>
- <%= link_to sauna_favorites_path(sauna), method: :delete, remote: true, class: "favorite_btn" do %>
- <button type="button" class="btn-dark"> 行ってみたい！<i class="fas fa-thumbs-up"></i><%= sauna.favorites.count %></button>
+  <%= link_to sauna_favorites_path(sauna), method: :delete, remote: true, class: "favorite_btn" do %>
+    <button type="button" class="btn-dark"> 行ってみたい！<i class="fas fa-thumbs-up"></i><%= sauna.favorites.count %></button>
   <% end %>
- <% else %>
+  <% else %>
   <%=link_to sauna_favorites_path(sauna), method: :post, remote: true, class: "favorite_btn" do %>
     <button type="button" class="btn-info">行ってみたい！<i class="fas fa-thumbs-up"></i><%= sauna.favorites.count %></button>
   <% end %>
- <% end %>
+<% end %>

@@ -1,17 +1,17 @@
 <%= render 'layouts/header'%>
 <%= render 'public/searchs/user' %>
 <div class="container">
- <div class="card text-center">
-  <div class="card-header">
+  <div class="card text-center">
+    <div class="card-header">
     <h4>検索結果ページ</h4>
-   </div>
+    </div>
     <div class="card-body">
       <div class="row">
-    	<% @users.each do |user| %>
-    	 <div class="col-12 col-sm-6 col-md-4 mb-3 ">
-        　<div class="card">
-          　<div class="card-header">
-             <p class="card-text"><%= image_tag user.get_profile_image  %></p>
+        <% @users.each do |user| %>
+        <div class="col-12 col-sm-6 col-md-4 mb-3 ">
+          <div class="card">
+            <div class="card-header">
+              <p class="card-text"><%= image_tag user.get_profile_image  %></p>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h5><%= user.name %></h5></li>
                 <li class="list-group-item"><%= link_to "マイページ",user_path(user.id) %></li>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <% end %>
-     </div>
+    </div>
   </div>
 </div>
 <%= render 'layouts/footer'%>

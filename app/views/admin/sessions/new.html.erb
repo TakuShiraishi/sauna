@@ -4,30 +4,29 @@
     <div class="col-md-12 col-md-8 col-lg-7 px-7 px-sm-0 mx-auto">
       <div class="card text-center">
         <div class="card-header">
-         管理者ログイン
-         </div>
-         <div class="card-body">
-           <%= form_with model: @admin, url: admin_session_path do |f| %>
-           <ul class="list-group list-group-flush">
-　            <li class="list-group-item">
-　              <%= f.label "メールアドレス" , class:"col-md-7" %>
-　              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-7" %>
-　            </li>
+          管理者ログイン
+        </div>
+        <div class="card-body">
+          <%= form_with model: @admin, url: admin_session_path do |f| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= f.label "メールアドレス" , class:"col-md-7" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-7" %>
+            </li>
 
-　            <li class="list-group-item">
-　              <%= f.label "パスワード" , class:"col-md-7" %>
-　              <%= f.password_field :password, autocomplete: "current-password", class:"col-md-7" %>
-　            </li>
-
-　            <li class="list-group-item">
-　               <%= f.submit "ログイン",class:"col-md-7" %>
-　            </li>
-　            <% end %>
-　         </ul>
-　       </div>
-　     </div>
-　   </div>
-　 </div>
+            <li class="list-group-item">
+              <%= f.label "パスワード" , class:"col-md-7" %>
+                <%= f.password_field :password, autocomplete: "current-password", class:"col-md-7" %>
+                </li>
+                <li class="list-group-item">
+                <%= f.submit "ログイン",class:"col-md-7" %>
+                </li>
+              <% end %>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 <%= render "admin/shared/links" %>
 <%= render 'layouts/footer'%>

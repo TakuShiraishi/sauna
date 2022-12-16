@@ -9,7 +9,7 @@
           <div class="card-body">
             <%= form_with model: @user, url: user_registration_path do |f| %>
             <%= render "public/shared/error_messages", resource: resource %>
-           <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <%= f.label "ニックネーム", class:"col-md-7" %>
               <%= f.text_field :name, class:"col-md-7"%>
@@ -39,8 +39,8 @@
             </li>
               <li class="list-group-item">
               <%= link_to "こちら", new_user_session_path %>からログインしてください
-           </li>
-           <% end %>
+            </li>
+            <% end %>
         </div>
       </div>
     </div>

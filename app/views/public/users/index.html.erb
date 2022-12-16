@@ -4,7 +4,7 @@
 <div class="card text-center">
   <div class="card-header">
     <h4>ユーザー一覧</h4>
-   </div>
+  </div>
     <div class="card-body">
       <div class="row">
           <% @users.each do |user| %>
@@ -16,7 +16,7 @@
                 <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
                 <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
                 </div>
-               </div>
+              </div>
             </div>
             <% end %>
           </div>

@@ -15,9 +15,9 @@
               <% end %>
             </ul>
           <% end %>
-  			  <%= form_with model: @sauna, local:true do |f| %>
-  			  <ul class="list-group list-group-flush">
-  		  　　<li class="list-group-item"><strong>個室サウナ名:</strong><%= f.text_field :name, class: 'form-control sauna_name' %></li>
+        <%= form_with model: @sauna, local:true do |f| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>個室サウナ名:</strong><%= f.text_field :name, class: 'form-control sauna_name' %></li>
             <li class="list-group-item"><strong>サウナ画像:</strong></br><%= f.file_field :profile_image %></li>
             <li class="list-group-item"><strong>郵便番号:</strong><%= f.text_field :post_code,class: 'form-control sauna_post_code', placeholder: "例110-0002" %></li>
             <li class="list-group-item"><strong>都道府県:</strong><%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></li>
@@ -36,7 +36,7 @@
           </ul>
         </div>
       </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
 </div>

@@ -1,61 +1,61 @@
 <%= render 'layouts/header'%>
 <div class="container">
-      <div class="card text-center">
-        <div class="card-header">
-          <h4><%= @user.name %>さんの投稿一覧ページ</h4>
-        </div>
-          <div class="card-body">
-            <div class="row">
-              <% @saunas.each do |sauna| %>
-              <div class="col-12 col-sm-6 col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header">
-                    <h4><strong><%= sauna.name %></strong></h4>
+  <div class="card text-center">
+    <div class="card-header">
+      <h4><%= @user.name %>さんの投稿一覧ページ</h4>
+    </div>
+      <div class="card-body">
+        <div class="row">
+          <% @saunas.each do |sauna| %>
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <h4><strong><%= sauna.name %></strong></h4>
+              </div>
+              <div class="card-body">
+                <%= image_tag sauna.get_profile_image(100,100) %></br>
+                  <!--, クラスつけていたclass: "img-fluid card-img-top" -->
+                <div id="favorite_btn_<%= sauna.id %>">
+                <%= render 'public/favorites/favorite', sauna: sauna %>
                   </div>
-                  <div class="card-body">
-                     <%= image_tag sauna.get_profile_image(100,100) %></br>
-                       <!--, クラスつけていたclass: "img-fluid card-img-top" -->
-                    <div id="favorite_btn_<%= sauna.id %>">
-                     <%= render 'public/favorites/favorite', sauna: sauna %>
-                      </div>
-                        <div id="post_raty_<%= sauna.id %>">
-                         &emsp;
-                        評価：
-                        </div>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>AIによるレビュー感情分析:</strong><%= sauna.score %></li>
-                            <li class="list-group-item"><strong>住所:</strong>〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
-                            <li class="list-group-item"><strong>サウナ室温度:</strong><%= sauna.temperature %>度</li>
-                            <li class="list-group-item"><strong>入浴料:</strong><%= sauna.price %>円</li>
-                            <li class="list-group-item"><strong>利用時間:</strong><%= sauna.time %>時間</li>
-                            <li class="list-group-item"><strong>定休日:</strong><%= sauna.holiday %>曜日</li>
-                            <li class="list-group-item"><strong>投稿日:</strong><%= I18n.l sauna.created_at %></li>
-                            <% if current_user != sauna.user%>
-                            <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(sauna), class: "btn btn-sm btn-success" %></li>
-                            <% end %>
-                            <li class="list-group-item"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></li>
-                            <!--lだけではNoMethodErrorになる。-->
-                            <!--その場合は、lの代わりにI18n.l-->
-                            <% if sauna.user == current_user %>
-                            <li class="list-group-item"><%= link_to '編集', edit_sauna_path(sauna), class: "btn btn-sm btn-success" %>
-                            <%= link_to '削除',sauna_path(sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-                            </li>
-                            <% else %>
-                          　<% end %>
-                          </ul>
-                        <script>
-                          $('#post_raty_<%= sauna.id %>').empty();
-                          var id_str = 'post_raty_' + <%= sauna.id %>;
-                          var elem = document.getElementById(id_str);
-                          var opt = {
-                            score: <%= sauna.star || 0 %>,
-                            starOn: "<%= asset_path('star-on.png') %>",
-                            starOff: "<%= asset_path('star-off.png') %>",
-                            starHalf: "<%= asset_path('star-half.png') %>",
-                          };
-                          raty(elem,opt);
-                  　　   　</script>
-                     </div>
+                    <div id="post_raty_<%= sauna.id %>">
+                    &emsp;
+                    評価：
+                    </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>AIによるレビュー感情分析:</strong><%= sauna.score %></li>
+                        <li class="list-group-item"><strong>住所:</strong>〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
+                        <li class="list-group-item"><strong>サウナ室温度:</strong><%= sauna.temperature %>度</li>
+                        <li class="list-group-item"><strong>入浴料:</strong><%= sauna.price %>円</li>
+                        <li class="list-group-item"><strong>利用時間:</strong><%= sauna.time %>時間</li>
+                        <li class="list-group-item"><strong>定休日:</strong><%= sauna.holiday %>曜日</li>
+                        <li class="list-group-item"><strong>投稿日:</strong><%= I18n.l sauna.created_at %></li>
+                        <% if current_user != sauna.user%>
+                        <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(sauna), class: "btn btn-sm btn-success" %></li>
+                        <% end %>
+                        <li class="list-group-item"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></li>
+                        <!--lだけではNoMethodErrorになる。-->
+                        <!--その場合は、lの代わりにI18n.l-->
+                        <% if sauna.user == current_user %>
+                        <li class="list-group-item"><%= link_to '編集', edit_sauna_path(sauna), class: "btn btn-sm btn-success" %>
+                        <%= link_to '削除',sauna_path(sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+                        </li>
+                        <% else %>
+                        <% end %>
+                      </ul>
+                    <script>
+                      $('#post_raty_<%= sauna.id %>').empty();
+                      var id_str = 'post_raty_' + <%= sauna.id %>;
+                      var elem = document.getElementById(id_str);
+                      var opt = {
+                        score: <%= sauna.star || 0 %>,
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                      };
+                      raty(elem,opt);
+                      </script>
+                    </div>
                   </div>
               </div>
           <% end %>

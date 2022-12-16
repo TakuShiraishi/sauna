@@ -3,23 +3,23 @@
   <div class="row">
     <div class="col-md-12 col-md-8 col-lg-8 px-8 px-sm-0 mx-auto">
       <div class="card text-center">
-         <div class="card-header">
-           <h4>サウナ詳細画面</h4>
-           </div>
-           <div class="card-body">
+          <div class="card-header">
+            <h4>サウナ詳細画面</h4>
+          </div>
+            <div class="card-body">
               <div class="row">
                 <div class="col-md-12 col-12">
                   <div class="card">
-                     <div class="card-header">
+                    <div class="card-header">
                       <h4><strong><%= @sauna.name %></strong></h4>
-                     </div>
-                       <div class="card-body">
-                  	    <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
-                  	    <div id="map"></div>
-                       <div id="post_raty">
-                        &emsp;
-                        評価：
-                      </div>
+                    </div>
+                      <div class="card-body">
+                        <%= image_tag @sauna.get_profile_image(500,500), class: "img-fluid"  %></br>
+                          <div id="map"></div>
+                        <div id="post_raty">
+                          &emsp;
+                          評価：
+                        </div>
                         <h5><strong><%= @sauna.comment %></strong></h5></br>
                         </div>
                         <ul class="list-group list-group-flush">
@@ -32,16 +32,16 @@
                           <!--lだけではNoMethodErrorになる。-->
                           <!--その場合は、lの代わりにI18n.l-->
                           <% if current_user != @sauna.user%>
-                           <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
+                          <li class="list-group-item"><%= link_to 'コメントを書く', new_sauna_comment_path(@sauna), class: "btn btn-sm btn-success" %></li>
                           <% end %>
                           <% if @sauna.user == current_user %>
                           <li class="list-group-item"><%= link_to '編集', edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
-                           <%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
+                            <%= link_to '削除',sauna_path(@sauna.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
                           <% else %>
                           <% end %>
                         </ul>
                         <script>
-                           $('#post_raty').empty();
+                          $('#post_raty').empty();
                           var elem = document.getElementById('post_raty');
                           var opt = {
                             score: <%= @sauna.star || 0 %>,
@@ -75,12 +75,12 @@
                         }
                       </script>
                       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>
-                     </div>
+                    </div>
                   </div>
-               </div>
+                </div>
             </div>
           </div>
-       </div>
+      </div>
     </div>
   </div>
 </div>

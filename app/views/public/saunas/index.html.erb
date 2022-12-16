@@ -4,26 +4,26 @@
 <div class="container pb-5">
   <div class="card text-center">
     <div class="card-header">
-     <h4>レビュー一覧</h4>
-     </div>
-       <div class="card-body">
+      <h4>レビュー一覧</h4>
+    </div>
+      <div class="card-body">
         <div class="row">
           <% @saunas.each do |sauna| %>
-           <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
               <div class="card">
                 <div class="card-header">
-                 <h4><strong><%= sauna.name %></strong></h4>
-                 </div>
-                 <div class="card-body">
-                 <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
-                 </div>
-                 <div id="favorite_btn_<%= sauna.id %>">
-                 <%= render 'public/favorites/favorite', sauna: sauna %>
+                  <h4><strong><%= sauna.name %></strong></h4>
+                </div>
+                  <div class="card-body">
+                    <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
+                  </div>
+                  <div id="favorite_btn_<%= sauna.id %>">
+                    <%= render 'public/favorites/favorite', sauna: sauna %>
                   </div>
                   <div id="post_raty_<%= sauna.id %>">
                     評価：
                   </div>
-                   <ul class="list-group list-group-flush">
+                  <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>AIによるレビュー感情分析:</strong><%= sauna.score %></li>
                     <li class="list-group-item"><strong>住所:</strong>〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>
                     <li class="list-group-item"><strong>サウナ室温度:</strong><%= sauna.temperature %>度</li>
@@ -34,25 +34,25 @@
                     <li class="list-group-item"><strong>投稿日:</strong><%= I18n.l sauna.created_at %></li>
                     <li class="list-group-item"><strong>コメントを見る:</strong> <%= link_to sauna.comments.size,sauna_comments_path(sauna) %></li>
                     <li class="list-group-item"><%= link_to '詳細', sauna_path(sauna.id), class:"btn btn-primary" %></li>
-                   </ul>
+                  </ul>
                     <script>
                     $('#post_raty_<%= sauna.id %>').empty();
                     var id_str = 'post_raty_' + <%= sauna.id %>;
                     var elem = document.getElementById(id_str);
-                　   var opt = {
-                     score: <%= sauna.star || 0 %>,
-                     starOn: "<%= asset_path('star-on.png') %>",
-                     starOff: "<%= asset_path('star-off.png') %>",
-                     starHalf: "<%= asset_path('star-half.png') %>",
-                     readOnly: true,
-                　   };
+                    var opt = {
+                      score: <%= sauna.star || 0 %>,
+                      starOn: "<%= asset_path('star-on.png') %>",
+                      starOff: "<%= asset_path('star-off.png') %>",
+                      starHalf: "<%= asset_path('star-half.png') %>",
+                      readOnly: true,
+                    };
                     raty(elem,opt);
-             　　   　</script>
+                    </script>
                 </div>
             </div>
           <% end %>
-         </div>
-       <%= paginate @saunas, theme: 'bootstrap-5'%>
+        </div>
+      <%= paginate @saunas, theme: 'bootstrap-5'%>
       </div>
     </div>
   </div>

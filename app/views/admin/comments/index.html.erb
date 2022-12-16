@@ -2,28 +2,28 @@
 <div class="container">
   <div class="card text-center">
     <div class="card-header">
-    <h4><%= link_to @sauna.name , admin_sauna_path(@sauna.id)  %>コメント一覧ページ</h4>
-    <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
-    　</div>
+      <h4><%= link_to @sauna.name , admin_sauna_path(@sauna.id)  %>コメント一覧ページ</h4>
+      <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
+    </div>
       <div class="card-body">
-    　   <div class="row">
-        	<% @comments.each do |comment| %>
-        	<div class="col-12 col-sm-6 col-md-4 mb-3">
-        	  <div class="card">
-        	    <div class="card-header">
-        	      <ul class="list-group list-group-flush">
-        	        <li class="list-group-item"><h5><%= comment.user.name %></h5></li>
-        	        <li class="list-group-item"><%= image_tag comment.user.get_profile_image  %></li>
-        	        <li class="list-group-item"><h5><%= comment.comment %><</h5>/li>
-                  <li class="list-group-item"><h5><strong>投稿日:</strong><%= I18n.l comment.user.created_at %></h5></li>
-                  <li class="list-group-item"><%= link_to '削除',admin_sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
-                 </ul>
-               </div>
-             </div>
-           </div>
+        <div class="row">
+            <% @comments.each do |comment| %>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+              <div class="card">
+                <div class="card-header">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h5><%= comment.user.name %></h5></li>
+                    <li class="list-group-item"><%= image_tag comment.user.get_profile_image  %></li>
+                    <li class="list-group-item"><h5><%= comment.comment %><</h5>/li>
+                    <li class="list-group-item"><h5><strong>投稿日:</strong><%= I18n.l comment.user.created_at %></h5></li>
+                    <li class="list-group-item"><%= link_to '削除',admin_sauna_comment_path(@sauna.id,comment.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <% end %>
-         </div>
-       </div>
+        </div>
+      </div>
     </div>
 </div>
 <%= render 'layouts/footer'%>
