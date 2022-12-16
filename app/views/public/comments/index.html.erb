@@ -1,15 +1,15 @@
 <%= render 'layouts/header'%>
 <div class="container ">
   <div class="card text-center">
-     <div class="card-header">
-     　<h4><%= link_to @sauna.name , sauna_path(@sauna.id)  %>コメント一覧ページ</h4>
-         <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
+    <div class="card-header">
+    <h4><%= link_to @sauna.name , sauna_path(@sauna.id)  %>コメント一覧ページ</h4>              
+        <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
             <div id="post_raty"></div>
-             <div id="favorite_btn_<%= @sauna.id %>">
+              <div id="favorite_btn_<%= @sauna.id %>">
               <%= render 'public/favorites/favorite', sauna: @sauna %>
               </div>
                 </div>
-               <div class="card-body">
+              <div class="card-body">
                 <div class="row">
                     <% @comments.each do |comment| %>
                   <div class="col-12 col-sm-6 col-md-4 mb-3">
@@ -25,16 +25,16 @@
                           <% else %>
                           <% end %>
                           <% if current_user != comment.user%>
-                           <li class="list-group-item"><div id="comment_favorite_btn_<%= comment.id %>">
-                             <%= render 'public/comment_favorites/comment_favorite', comment: comment, sauna: @sauna  %></div></li>
+                          <li class="list-group-item"><div id="comment_favorite_btn_<%= comment.id %>">
+                          <%= render 'public/comment_favorites/comment_favorite', comment: comment, sauna: @sauna  %></div></li>
                           <% end %>
                         </ul>
                       </div>
-                     </div>
+                    </div>
                     </div>
                       <% end %>
-                 </div>
-             <%= paginate @comments, theme: 'bootstrap-5' %>
+                </div>
+            <%= paginate @comments, theme: 'bootstrap-5' %>
         </div>
     </div>
 </div>
