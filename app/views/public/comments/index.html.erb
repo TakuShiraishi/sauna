@@ -2,7 +2,7 @@
 <div class="container ">
   <div class="card text-center">
     <div class="card-header">
-    <h4><%= link_to @sauna.name , sauna_path(@sauna.id)  %>コメント一覧ページ</h4>              
+    <h4><%= link_to @sauna.name , sauna_path(@sauna.id)  %>コメント一覧ページ</h4>
         <h4><%= @sauna.prefecture %><%= @sauna.place %></h4>
             <div id="post_raty"></div>
               <div id="favorite_btn_<%= @sauna.id %>">
@@ -17,7 +17,7 @@
                       <div class="card-header">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item"><h5><%= comment.user.name %></h5></li>
-                          <li class="list-group-item"><%= image_tag comment.user.get_profile_image  %></li>
+                          <li class="list-group-item"><%= image_tag comment.user.get_profile_image, class: "rounded-circle", size: "100x100"   %></li>
                           <li class="list-group-item"><h5><%= comment.comment %></h5></li>
                           <li class="list-group-item"><h5><strong>投稿日:</strong><%= I18n.l comment.user.created_at %></h5></li>
                           <% if comment.user == current_user %>
