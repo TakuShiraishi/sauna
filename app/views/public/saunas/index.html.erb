@@ -15,7 +15,7 @@
                   <h4><strong><%= sauna.name %></strong></h4>
                 </div>
                   <div class="card-body">
-                    <p class="card-text"><%= image_tag sauna.get_profile_image(100,100)%></p>
+                    <p class="card-text"><%= image_tag sauna.get_profile_image(250,250)%></p>
                   </div>
                   <div id="favorite_btn_<%= sauna.id %>">
                     <%= render 'public/favorites/favorite', sauna: sauna %>

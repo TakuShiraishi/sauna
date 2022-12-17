@@ -10,10 +10,10 @@
             <div class="row">
               <div class="col-md-12 col-12">
                 <h5 class="card-title"><%= @user.name %></h5>
-                </br><%= image_tag @user.get_profile_image  %></br>
+                </br><%= image_tag @user.get_profile_image, class: "rounded-circle", size: "150x150"   %></br>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><strong>ニックネーム:</strong><%= @user.name %></li>
-                  <li class="list-group-item"><strong>年齢:</strong><%= @user.birth_date %>歳</li>
+                  <li class="list-group-item"><strong>年齢:</strong><%= @user.birth_date %></li>
                   <li class="list-group-item"><strong>性別:</strong><%= @user.gender %></li>
                   <li class="list-group-item"><strong>メールアドレス:</strong><%= @user.email %></li>
                   <li class="list-group-item"><%= link_to '投稿内容を確認する', admin_sauna_show_index_sauna_path(@user), class: " item_show_btn btn btn-success" %></li>

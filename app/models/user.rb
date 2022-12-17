@@ -39,7 +39,7 @@ class User < ApplicationRecord
       user.name = "guestuser"
     end
   end
-
+  
   def self.looks(search, name)
     if search == "perfect"
       @user = User.where("name LIKE?", "#{name}")

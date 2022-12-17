@@ -19,8 +19,8 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><strong>プロフィール画像:</strong><%= f.file_field :profile_image, class: "img-fluid card-img-top" %></li>
           <li class="list-group-item"><strong>ニックネーム:</strong><%= f.text_field :name, class: "form-control name" %></li>
-          <li class="list-group-item"><strong>年齢:</strong><%= f.text_field :birth_date, class: "form-control birth_date", placeholder: "数字のみ記入お願いします" %></li>
-          <li class="list-group-item"><strong>性別:</strong><%= f.text_field :gender, class: "form-control gender" %></li>
+          <li class="list-group-item"><strong>年齢:</strong><%= f.select :birth_date, [["10代", "10代"], ["20代", "20代"], ["30代", "30代"], ["40代", "40代"],["50代", "50代"],["60代", "50代"],["70代", "70代"],["80代", "80代"],["90代", "90代"],],{ include_blank: '年齢' }, { class: 'custom-select' } %></li>
+          <li class="list-group-item"><strong>年齢:</strong><%= f.select :gender, [["男性", "男性"],["女性", "女性"],["その他", "その他"],],{ include_blank: '任意記入' }, { class: 'custom-select' }  %></li>
           <li class="list-group-item"><%= f.submit "編集内容を保存する",class: "btn btn-secondary" %></li>
           <li class="list-group-item"><%= link_to '退会する', user_unsubscribe_path(@user.id), class: "glyphicon glyphicon-tint btn btn-danger"%></li>
         </ul>
