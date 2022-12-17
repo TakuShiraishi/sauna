@@ -13,7 +13,7 @@
               <h4><strong><%= sauna.name %></strong></h4>
             </div>
             <div class="card-body">
-              <%= image_tag sauna.get_profile_image(250,250) %></br>
+              <%= image_tag sauna.get_profile_image(100,100) %></br>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>AIによるレビュー感情分析:</strong><%= sauna.score %></li>
                 <li class="list-group-item"><strong>住所:</strong>〒<%= sauna.post_code %></br><%= sauna.prefecture %><%= sauna.place %></br><%= sauna.address %></li>

@@ -15,7 +15,7 @@
                     <h4><strong><%= sauna.name %></strong></h4>
                   </div>
                   <div class="card-body">
-                    <%= image_tag sauna.get_profile_image(250,250) %></br>
+                    <%= image_tag sauna.get_profile_image(100,100) %></br>
                     <!--, クラスつけていたclass: "img-fluid card-img-top" -->
                     <div id="favorite_btn_<%= sauna.id %>">
                     <%= render 'public/favorites/favorite', sauna: sauna %>
