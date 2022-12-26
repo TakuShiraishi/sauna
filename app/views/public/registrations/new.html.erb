@@ -14,12 +14,10 @@
               <%= f.label "ニックネーム", class:"col-md-7" %>
               <%= f.text_field :name, class:"col-md-7"%>
             </li>
-
             <li class="list-group-item">
               <%= f.label "メールアドレス", class:"col-md-7" %>
               <%= f.email_field :email, class:"col-md-7" %>
             </li>
-
             <li class="list-group-item">
               <% if @minimum_password_length %>
               <%= f.label :"パスワード(#{ @minimum_password_length }文字以上)",class:"col-md-7" %></br>
@@ -28,12 +26,10 @@
               <% end %>
               <%= f.password_field :password, autocomplete: "new-password",class:"col-md-7" %>
             </li>
-
             <li class="list-group-item">
               <%= f.label :"パスワード(確認用)",class:"col-md-7" %></br>
               <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"col-md-7" %>
             </li>
-
             <li class="list-group-item">
               <%= f.submit "新規会員登録",class: "btn btn-outline-success" %>
             </li>

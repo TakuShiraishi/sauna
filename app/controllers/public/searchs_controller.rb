@@ -1,5 +1,4 @@
 class Public::SearchsController < ApplicationController
-  # def serch_result
   def search_sauna_result
     @saunas = Sauna.all
 		@sauna = Sauna.new
@@ -7,7 +6,6 @@ class Public::SearchsController < ApplicationController
     @range = params[:range]
     content = params["name"]
     method = params["method"]
-    # byebug
     if method == 'perfect'
       @saunas=@saunas.where(name: content)
     else
@@ -20,7 +18,6 @@ class Public::SearchsController < ApplicationController
     @range = params[:range]
     content = params["name"]
     method = params["method"]
-    # byebug
     if method == 'perfect'
       @users=@users.where(name: content)
     else

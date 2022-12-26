@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-
   def index
     @users = User.where.not(is_deleted: true)
     # 削除されていたら表示されない
@@ -16,7 +15,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def withdraw
-    # byebug
     @user = User.find(params[:user_id])
     @user.is_deleted = true
     @user.save(:validate => false)

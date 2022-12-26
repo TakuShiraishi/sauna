@@ -6,6 +6,6 @@ class Comment < ApplicationRecord
 	validates :comment,presence:true,length:{maximum:200}
 
 	def favorited_by?(user)
-    comment_favorites.exists?(user_id: user.id)
+		comment_favorites.exists?(user_id: user.id)
 	end
 end

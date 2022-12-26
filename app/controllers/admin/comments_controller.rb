@@ -1,8 +1,8 @@
 class Admin::CommentsController < ApplicationController
   def index
     @comment = Comment.new
-		@sauna = Sauna.find(params[:sauna_id])
-		@comments = @sauna.comments.all
+    @sauna = Sauna.find(params[:sauna_id])
+    @comments = @sauna.comments.all
   end
 
   def destroy
