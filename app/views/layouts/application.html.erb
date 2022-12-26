@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <%= render 'layouts/header'%>
     <title>@sauna</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,4 +17,5 @@
     <%= render 'public/shared/flash_message' %>
     <%= yield %>
   </body>
+  <%= render 'layouts/footer'%>
 </html>

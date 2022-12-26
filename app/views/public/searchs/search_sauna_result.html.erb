@@ -1,4 +1,3 @@
-<%= render 'layouts/header'%>
 <%= render 'public/searchs/sauna' %>
 <%= render 'public/searchs/form' %>
 <div class="container pb-5">
@@ -46,6 +45,7 @@
                             starOn: "<%= asset_path('star-on.png') %>",
                             starOff: "<%= asset_path('star-off.png') %>",
                             starHalf: "<%= asset_path('star-half.png') %>",
+                            readOnly: true,
                           };
                           raty(elem,opt);
                           </script>
@@ -57,4 +57,3 @@
     </div>
   </div>
 </div>
-<%= render 'layouts/footer'%>
