@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <%= form_with url: search_sauna_result_searchs_path, method: :get do |f| %>
+    <%= form_with url: search_sauna_result_searches_path, method: :get do |f| %>
       <label><%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, { include_blank: '都道府県' }, { class: 'custom-select' } %></label>
       <%= f.submit '検索' %>
     <% end %>

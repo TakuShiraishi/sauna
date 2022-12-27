@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get :favorites
       end
     end
-    resource :searchs, only: [:index] do
+    resource :searches, only: [:index] do
       get :search_sauna_result
       get :search_user_result
     end

@@ -8,10 +8,11 @@
               <div class="col-md-1 p-3"></div>
               <h2>
                 <p class="shadow text-center p-1">
-                  あなたに合ったお気に入りの個室サウナ探してみませんか？</br>
-                  個室サウナレビューサイト</br>
+                  あなたに合ったお気に入りの個室サウナ探してみませんか？<br/>
+                  個室サウナレビューサイト<br/>
               </h2>
               <div class="row justify-content-center p-5">
+                <% if @user == current_user  %>
               <div class="col-md-3 p-3">
                 <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block  sign_in", method: :post %>
               </div>
@@ -21,6 +22,8 @@
               <div class="col-md-3 p-3">
                 <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
               </div>
+              <% else %>
+              <% end %>
               </div>
           </div>
         </div>

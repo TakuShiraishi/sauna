@@ -8,7 +8,6 @@ class Public::SaunasController < ApplicationController
   end
 
   def index
-    @user = current_user
     @saunas = Sauna.eager_load(:user).preload(:comments,:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size }
     @saunas = Kaminari.paginate_array(@saunas).page(params[:page]).per(6)
     # N+1問題のためeager_load(:user).preload(:comments)処理時間の削減
@@ -55,7 +54,7 @@ class Public::SaunasController < ApplicationController
 
   def update
     @sauna = Sauna.find(params[:id])
-    @sauna.score = Language.get_data(sauna_params[:comment])  #この行を追加
+    @sauna.score = Language.get_data(sauna_params[:comment])
     @sauna.save
     if @sauna.update(sauna_params)
       redirect_to sauna_path(@sauna.id), notice: "サウナ投稿を更新しました"

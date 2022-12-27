@@ -1,6 +1,5 @@
 class Public::CommentsController < ApplicationController
   def index
-    @comment = Comment.new
     @sauna = Sauna.find(params[:sauna_id])
     @comments = @sauna.comments.page(params[:page])
   end

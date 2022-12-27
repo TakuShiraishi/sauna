@@ -1,7 +1,5 @@
-class Public::SearchsController < ApplicationController
+class Public::SearchesController < ApplicationController
   def search_sauna_result
-    @saunas = Sauna.all
-		@sauna = Sauna.new
     @saunas = Sauna.looks(params[:prefecture_name] )
     @range = params[:range]
     content = params["name"]
