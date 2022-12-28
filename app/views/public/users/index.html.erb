@@ -1,25 +1,10 @@
 <%= render 'public/searches/user' %>
 <div class="container pb-5">
-<div class="card text-center">
-  <div class="card-header">
-    <h4>ユーザー一覧</h4>
-  </div>
-    <div class="card-body">
-      <div class="row">
-          <% @users.each do |user| %>
-          <div class="col-12 col-sm-6 col-md-4 mb-3">
-            <div class="card">
-              <div class="card-header">
-                <p class="card-text"><%= image_tag user.get_profile_image, class: "rounded-circle", size: "150x150"  %></p>
-                <h5 class="card-title"><%= user.name %></h5>
-                <p class="card-text"><%= link_to "マイページ",user_path(user.id) %></p>
-                <p class="card-text"><%= render 'public/relationships/btn', user: user %></p>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-          <%= paginate @users, theme: 'bootstrap-5' %>
-      </div>
+  <div class="card text-center">
+    <div class="card-header">
+      <h4>ユーザー一覧</h4>
     </div>
+    <%= render 'public/users/index',users: @users %>
+    <%= paginate @users, theme: 'bootstrap-5' %>
+  </div>
 </div>
