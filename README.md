@@ -34,7 +34,7 @@
 - レビューを投稿したい時
 - 贅沢したい時
 
-##設計図
+## 設計図
 - テーブル提議書：https://docs.google.com/spreadsheets/d/1Vh_nwVe-q1epaqEoaXVKYjdIxaSODWFvNm1K8dDTdjs/edit#gid#=1571004636
 - ER図：https://app.diagrams.net/#D%EF%BC%A0sauna.drawio
 - アプリケーション詳細設計：https://docs.google.com/spreadsheets/d/1E5XhoSs5WBehpfVnUEl_ovr0uo80KRw2nK1_RYAwg3k/edit#gid=501181805
