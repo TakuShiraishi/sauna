@@ -39,6 +39,9 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:sauna_id)
+    # Product.pluck(:name)productモデルのnameカラムの一覧を持ってこれる
+    # favoritesの中身には、何が入ってるかというと、あるユーザーがいいねした記事のid
     @favorite_saunas = Sauna.find(favorites)
   end
 

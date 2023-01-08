@@ -34,7 +34,8 @@
 - レビューを投稿したい時
 - 贅沢したい時
 
-
+## 
+- テーブル提議書：https://docs.google.com/spreadsheets/d/1Vh_nwVe-q1epaqEoaXVKYjdIxaSODWFvNm1K8dDTdjs/edit#gid=1571004636
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -44,7 +45,7 @@
 - IDE：Cloud9
 
 ## 使用素材
-- <a href="https://pixabay.com/ja/users/mikkooja1977-2095799/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3435549">Mikko Oja</a>による<a href="https://pixabay.com/ja//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3435549">Pixabay</a>からの画像
+- pixabay:https://pixabay.com/ja/
 
 
 
