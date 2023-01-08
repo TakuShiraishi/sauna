@@ -34,8 +34,9 @@
 - レビューを投稿したい時
 - 贅沢したい時
 
-## 
-- テーブル提議書：https://docs.google.com/spreadsheets/d/1Vh_nwVe-q1epaqEoaXVKYjdIxaSODWFvNm1K8dDTdjs/edit#gid=1571004636
+##設計図
+- テーブル提議書：https://docs.google.com/spreadsheets/d/1Vh_nwVe-q1epaqEoaXVKYjdIxaSODWFvNm1K8dDTdjs/edit#gid#=1571004636
+- ER図：https://app.diagrams.net/#D%EF%BC%A0sauna.drawio
 
 ## 開発環境
 - OS：Linux(CentOS)
