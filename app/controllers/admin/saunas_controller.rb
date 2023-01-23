@@ -1,6 +1,6 @@
 class Admin::SaunasController < ApplicationController
   def index
-    @saunas = Sauna.eager_load(:user).page(params[:page]).order('score DESC')
+    @saunas = Sauna.eager_load(:user).page(params[:page])
     # N+1問題のためeager_load(:user).preload(:comments)処理時間の削減,感情分析並び替え
     @sauna = Sauna.new
   end
